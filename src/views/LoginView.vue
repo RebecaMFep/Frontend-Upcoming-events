@@ -1,26 +1,26 @@
 <script setup>
 import LoginForm from "./../components/login/LoginForm.vue";
 
-
 </script>
+
 <template>
-    
-    <main>
+    <div>
         <h1>Iniciar sesión</h1>
-        
-        
         <LoginForm />
-    </main>
+    </div>
 </template>
+
 <style lang="scss" scoped>
-main{
+main {
     background-color: white;
     height: 90%;
 }
-h1{
+
+h1 {
     color: blue;
     text-align: center;
     font-size: large;
 }
-   
 </style >
+
+

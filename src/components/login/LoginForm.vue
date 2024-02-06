@@ -10,17 +10,14 @@ const router = useRouter()
 let username = ref("")
 let password = ref("")
 
-
-const usuario = ref('');
-const usuarioRules = [
+const userRules = [
   value => {
     if (value?.length > 3) return true;
     return 'First name must be at least 3 characters.';
   },
 ];
 
-const contraseña = ref('123');
-const contraseñaRules = [
+const passwordRules = [
   value => {
     if (/[^0-9]/.test(value)) return true;
     return 'Last name can not contain digits.';
@@ -29,21 +26,16 @@ const contraseñaRules = [
 
 async function login() {
 
-  try {
-    let authString = btoa(`${username}:${password}`)
-    const response = await fetch(uri + '/login', {
-      method: 'GET',
-      headers: {
-        'Authorization': 'Basic ' + authString
-      },
-      credentials: 'include'
-    });
-    const text = await response.json();
-    console.log(text);
-    redirectToAdminDashboard()
-  } catch (error) {
-    alert("Usuario o contraseña incorrectos")
-    throw new Error('Error occured during API fetch GET request while login')
+  const dataConnection = {
+    username: username.value,
+    password: password.value
+  }
+
+  store.login(dataConnection)
+
+  if (store.user.isAuthenticated) {
+    const redirectPath = '/dashboard'
+    router.push(redirectPath)
   }
 }
 
@@ -59,14 +51,13 @@ function redirectToAdminDashboard() {
     <v-sheet class="mx-auto rounded-lg login-box" style="">
       <div class="form">
         <v-form fast-fail @submit.prevent="login()">
-          <v-text-field class="rounded-lg" v-model="usuario" label="Usuario" :rules="usuarioRules"></v-text-field>
+          <v-text-field class="rounded-lg" v-model="username" label="Usuario" :rules="userRules"></v-text-field>
 
-          <v-text-field class="rounded-lg" v-model="contraseña" label="Contraseña"
-            :rules="contraseñaRules"></v-text-field>
+          <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules"></v-text-field>
 
           <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
 
-          <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+          <v-btn type="" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>
       </div>
     </v-sheet>
@@ -80,7 +71,6 @@ function redirectToAdminDashboard() {
   border: 2px solid blue;
   border-radius: 20px;
   justify-content: center;
-
 }
 
 .custom-border {
@@ -91,6 +81,5 @@ function redirectToAdminDashboard() {
   margin-top: 10%;
   margin: 5%;
   margin-bottom: 10%;
-
 }
 </style>
