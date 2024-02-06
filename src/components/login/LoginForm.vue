@@ -1,11 +1,13 @@
 <script setup>
 import { ref } from "vue"
 import { useRoute, useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/auth";
 
 let uri = import.meta.env.VITE_API_ENDPOINT_GENERAL
 
 const route = useRoute()
 const router = useRouter()
+const store = useAuthStore()
 
 let username = ref("")
 let password = ref("")
