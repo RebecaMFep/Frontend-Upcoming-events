@@ -13,7 +13,12 @@ export const useEventStore = defineStore('event', () => {
     
     try {
       isLoading.value = true
-      const response = await axios.get(uri + '/events')
+
+      const options = {
+        baseURL: uri
+      }
+
+      const response = await axios.get('/events', options)
       const data = await response.data
       Object.assign(events, data)
       isLoading.value = false
