@@ -1,9 +1,11 @@
 <script setup>
-import HeaderComponent from '@/components/header-footer/HeaderComponent.vue';
+import FooterComponent from '@/components/header-footer/FooterComponent.vue'
 </script>
 
 <template>
   <main>
-    <HeaderComponent />
+    <h1>Home View</h1>
+
+  <FooterComponent />
   </main>
 </template>
