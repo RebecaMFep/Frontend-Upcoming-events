@@ -1,58 +1,45 @@
-<script setup>
-  // import { ref } from 'vue'
-  // import { useField, useForm } from 'vee-validate'
+<script>
 
-  // const { handleSubmit, handleReset } = useForm({
-  //   validationSchema: {
-  //     name (value) {
-  //       if (value?.length >= 2) return true
-
-  //       return 'Name needs to be at least 2 characters.'
-  //     },
-  //     phone (value) {
-  //       if (value?.length > 9 && /[0-9-]+/.test(value)) return true
-
-  //       return 'Phone number needs to be at least 9 digits.'
-  //     },
-  //     email (value) {
-  //       if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
-
-  //       return 'Must be a valid e-mail.'
-  //     },
-  //     select (value) {
-  //       if (value) return true
-
-  //       return 'Select an item.'
-  //     },
-  //     checkbox (value) {
-  //       if (value === '1') return true
-
-  //       return 'Must be checked.'
-  //     },
-  //   },
-  // })
-  // const name = useField('name')
-  // const phone = useField('phone')
-  // const email = useField('email')
-  // const select = useField('select')
-  // const checkbox = useField('checkbox')
-
-  // const items = ref([
-  //   'Item 1',
-  //   'Item 2',
-  //   'Item 3',
-  //   'Item 4',
-  // ])
-
-  // const submit = handleSubmit(values => {
-  //   alert(JSON.stringify(values, null, 2))
-  // })
 </script>
 
+<template>
+  <v-form v-model="valid">
+    <v-container>
+      <v-row>
+        <v-col cols="12" md="4">
+          <v-text-field v-model="Title" :rules="nameRules" :counter="10" label="Title" required hide-details> 
+          </v-text-field>
+        </v-col>
 
-   
-   <template>
-  
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="lastname"
+            :rules="nameRules"
+            :counter="10"
+            label="Last name"
+            hide-details
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            hide-details
+            required
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
 </template>
 
 
