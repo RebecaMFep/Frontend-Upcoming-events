@@ -1,4 +1,5 @@
 <script setup>
+
 import FooterComponent from '@/components/header-footer/FooterComponent.vue'
 </script>
 
