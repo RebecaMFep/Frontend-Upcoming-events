@@ -5,6 +5,7 @@
 <template>
     <header>
       <img src="../../assets/images/logoHeader.png" alt="">
+      
       <div class="buttons">
         <v-btn class="button1" color="yellow-darken-4">Iniciar sesión</v-btn>
         <v-btn class="button2" color="yellow-darken-4">registrarse</v-btn>
