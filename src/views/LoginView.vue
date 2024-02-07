@@ -1,6 +1,15 @@
 <script setup>
 import LoginForm from "./../components/login/LoginForm.vue";
 
+axios
+    .get("localhost:8080/api/v1/")
+    .then(response => {
+        console.log(response.data)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+
 </script>
 
 <template>
