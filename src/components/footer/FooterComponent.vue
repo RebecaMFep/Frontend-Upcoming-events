@@ -11,10 +11,7 @@ const icons = [
 
 
 <template>
-    <v-footer
-      dark
-      height="auto"
-    >
+    <v-footer color="" dark height="auto">
       <v-card
         class="flex"
         flat
@@ -42,3 +39,8 @@ const icons = [
       </v-card>
     </v-footer>
   </template>
+
+  <style>
+
+
+</style>

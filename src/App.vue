@@ -1,16 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import HeaderComponent from './components/header/HeaderComponent.vue';
+import FooterComponent from './components/footer/FooterComponent.vue';
 
 </script>
 
 <template>
   <header>
-     <!-- //<img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+    <HeaderComponent />
 
     <div class="wrapper">
-
       <nav>
-         <RouterLink to="/">Home</RouterLink> 
+        <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
         <RouterLink to="/dashboard">Dashboard</RouterLink>
@@ -18,9 +19,10 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </header>
 
-  <RouterView />
+  <v-app>
+    <RouterView />
+    <FooterComponent />
+  </v-app>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

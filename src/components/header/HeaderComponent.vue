@@ -4,7 +4,7 @@
   
 <template>
     <header>
-      <img src="../../assets/images/logoHeader.png" alt="">
+      <img src="../../assets/images/icons/logoHeader.png" alt="">
       
       <div class="buttons">
         <v-btn class="button1" color="yellow-darken-4">Iniciar sesión</v-btn>
