@@ -74,9 +74,13 @@ function redirectToAdminDashboard() {
   border-radius: 20px;
   justify-content: center;
 }
+.rounded-lg{
+  margin-top: 5%;
+}
 
 .custom-border {
   border: 1px solid blue;
+  margin-bottom: 5%;
 }
 
 .form {
