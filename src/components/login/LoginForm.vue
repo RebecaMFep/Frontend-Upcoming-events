@@ -40,6 +40,10 @@ async function login() {
     router.push(redirectPath)
   }
 }
+function redirectToRegister() {
+  const redirectPath = route.query.redirect || '/register'
+  router.push(redirectPath)
+}
 
 function redirectToAdminDashboard() {
   const redirectPath = route.query.redirect || '/'
@@ -59,7 +63,7 @@ function redirectToAdminDashboard() {
 
           <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
 
-          <v-btn type="" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+          <v-btn type="link" @click="redirectToRegister()" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>
       </div>
     </v-sheet>
