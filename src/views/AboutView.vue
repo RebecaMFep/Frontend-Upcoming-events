@@ -1,14 +1,12 @@
 <script setup>
-import AddForm from '@/components/adminDashboard/AddForm.vue';
+import AddEvent from '@/components/adminDashboard/AddEvent.vue';
+//import AddForm from '@/components/adminDashboard/AddForm.vue';
 
 </script>
 
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-   
-  <AddForm />
+
+   <AddEvent />
 </template>
 
 <style>
