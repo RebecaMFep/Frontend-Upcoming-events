@@ -1,4 +1,5 @@
-<script setup>
+<script>
+
 
 </script>
   
@@ -16,7 +17,7 @@
 
 <style lang="scss" scoped>
  header {
-   background-color: #7DC6D6;
+   background-color:#80CBC4;
    width: 100%;
    height: 150px;
    display: flex;

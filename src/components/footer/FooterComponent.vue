@@ -11,12 +11,8 @@ const icons = [
 
 
 <template>
-    <v-footer color="" dark height="auto">
-      <v-card
-        class="flex"
-        flat
-        tile
-      >
+    <v-footer color="teal-lighten-3">
+      <v-card color="teal-lighten-3" class="flex" flat tile>
         <v-card-title class="teal">
           
   
@@ -34,7 +30,7 @@ const icons = [
         </v-card-title>
   
         <v-card-actions class="grey darken-3 justify-center">
-          &copy;2024 — <strong>Team Event</strong>
+          <strong>&copy;2024 — Team Event</strong>
         </v-card-actions>
       </v-card>
     </v-footer>

@@ -1,178 +1,205 @@
-<script>
-  export default {
-    data: () => ({
-      countries: ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Anguilla', 'Antigua &amp; Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia &amp; Herzegovina', 'Botswana', 'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Cape Verde', 'Cayman Islands', 'Chad', 'Chile', 'China', 'Colombia', 'Congo', 'Cook Islands', 'Costa Rica', 'Cote D Ivoire', 'Croatia', 'Cruise Ship', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Polynesia', 'French West Indies', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kuwait', 'Kyrgyz Republic', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Mauritania', 'Mauritius', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Namibia', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russia', 'Rwanda', 'Saint Pierre &amp; Miquelon', 'Samoa', 'San Marino', 'Satellite', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'St Kitts &amp; Nevis', 'St Lucia', 'St Vincent', 'St. Lucia', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', `Timor L'Este`, 'Togo', 'Tonga', 'Trinidad &amp; Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks &amp; Caicos', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'],
-      errorMessages: '',
-      title: null,
-      address: null,
-      city: null,
-      state: null,
-      zip: null,
-      country: null,
-      formHasErrors: false,
-    }),
+<script setup>
 
-    computed: {
-      form () {
-        return {
-          title: this.title,
-          address: this.address,
-          city: this.city,
-          state: this.state,
-          zip: this.zip,
-          country: this.country,
-        }
-      },
-    },
+function resetForm() { 
+  document.getElementById("dateevent").value = "";
+  document.getElementById("hora").value = "";
+  document.getElementById("prueba").value = "";
+  document.getElementById("titulo").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("plazas").value = "";
+  document.getElementById("file").value = "";
 
-    watch: {
-      name () {
-        this.errorMessages = ''
-      },
-    },
-
-    methods: {
-      addressCheck () {
-        this.errorMessages = this.address && !this.name
-          ? `Hey! I'm required`
-          : ''
-
-        return true
-      },
-      resetForm () {
-        this.errorMessages = []
-        this.formHasErrors = false
-
-        Object.keys(this.form).forEach(f => {
-          this.$refs[f].reset()
-        })
-      },
-      submit () {
-        this.formHasErrors = false
-
-        Object.keys(this.form).forEach(f => {
-          if (!this.form[f]) this.formHasErrors = true
-
-          this.$refs[f].validate(true)
-        })
-      },
-    },
-  }
+}
 </script>
 
-
 <template>
+ 
   <v-row justify="center">
-    <v-col
-      cols="12"
-      sm="10"
-      md="8"
-      lg="6"
-    >
+    <v-col cols="12" sm="10" md="8" lg="6">
+      <v-card-title class="title">
+        <h1>Añadir Nuevo Evento</h1>
+      </v-card-title>
+
+      <v-spacer></v-spacer>
+
       <v-card ref="form">
-        <v-file-input
-    :rules="rules"
-    accept="image/png, image/jpeg, image/bmp"
-    placeholder="Pick an avatar"
-    prepend-icon="mdi-camera"
-    label="Avatar"
-  ></v-file-input>
+
+          <v-file-input :rules="rules" accept="image/png, image/jpeg, image/bmp" placeholder="Añadir foto..." label="Añade foto..."></v-file-input>
+
         <v-card-text>
-          <v-text-field
-            ref="title"
-            v-model="title"
-            :rules="[() => !!title || 'This field is required']"
-            :error-messages="errorMessages"
-            label="Title"
-            placeholder="Concert"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="event"
-            v-model="event"
-            :rules="[
-              () => !!event || 'This field is required',
-              () => !!event && event.length <= 50 || 'Event must be less than 25 characters',
-              eventCheck
-            ]"
-            label="Event Line"
-            placeholder="Evento, lugar..."
-            counter="25"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="city"
-            v-model="city"
-            :rules="[() => !!city || 'This field is required', eventCheck]"
-            label="City"
-            placeholder="Madrid"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="state"
-            v-model="state"
-            :rules="[() => !!state || 'This field is required']"
-            label="State/Province/Region"
-            required
-            placeholder="TX"
-          ></v-text-field>
-          <!-- <v-text-field
-            ref="zip"
-            v-model="zip"
-            :rules="[() => !!zip || 'This field is required']"
-            label="ZIP / Postal Code"
-            required
-            placeholder="79938"
-          ></v-text-field>
-          <v-autocomplete
-            ref="country"
-            v-model="country"
-            :rules="[() => !!country || 'This field is required']"
-            :items="countries"
-            label="Country"
-            placeholder="Select..."
-            required
-          ></v-autocomplete> -->
-        </v-card-text>
-        <v-divider class="mt-12"></v-divider>
-        <v-card-actions>
-          <v-btn variant="text">
-            Cancel
-          </v-btn>
-          <v-spacer></v-spacer>
-          <v-slide-x-reverse-transition>
-            <v-tooltip
-              v-if="formHasErrors"
-              location="left"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  icon
-                  class="my-0"
-                  v-bind="attrs"
-                  @click="resetForm"
-                  v-on="on"
-                >
-                  <v-icon>mdi-refresh</v-icon>
-                </v-btn>
-              </template>
-              <span>Refresh form</span>
-            </v-tooltip>
-          </v-slide-x-reverse-transition>
-          <v-btn
-            color="primary"
-            variant="text"
-            @click="submit"
-          >
-            Submit
-          </v-btn>
-        </v-card-actions>
+
+          <v-text-field ref="title" v-model="title" label="Title" placeholder="Concert" required></v-text-field>
+
+          <div class="formtwo">
+
+          <div class="dateFields">
+          <label for="name"><span class="Asterisk">* </span>Introduce la fecha</label>
+          <input type="date" class="form-control " id="dateevent" />
+          </div>
+          <div class="dateFields">
+          <label for="name"><span class="Asterisk">* </span>Añade la hora</label>
+          <input type="text" class="form-control form-control-lg" id="hora" />
+          </div>
+          <div class="check">
+          <input type="checkbox" class="prueba" id="prueba" />
+          <label for="name"> Recomendado</label>
+          </div>
+          </div>
+
+
+          <div class="form-group">
+          <label for="name"><span class="Asterisk">* </span>Introduce un titulo</label>
+          <input type="text" class="form-control form-control-lg" id="titulo" />
+
+          </div>
+
+          <div class="form-group">
+          <label for="name"><span class="Asterisk">* </span>Añade una descripción</label>
+          <input type="text" class="form-control form-control-lg" id="description" />
+
+          </div>
+
+          <div class="form-group">
+          <label for="name"><span class="Asterisk">* </span>Determina el número de plazas</label>
+          <input type="number" class="form-control form-control-lg" id="plazas" />
+          </div>
+
+          <div class="form-group">
+          <label for="name"><span class="Asterisk">* </span>Añade una imagen</label>
+          <input type="file" class="form-control form-control-lg" id="file" />
+          </div>
+
+          <div id="buttons-box">
+      
+            <v-btn  color="yellow-darken-4"  id="reset" @click="resetForm()">Borrar</v-btn>
+          <v-btn color="yellow-darken-4" id="send" @click="save()">Añadir</v-btn>
+        </div>
+        
+          </v-card-text> 
+  
       </v-card>
     </v-col>
   </v-row>
 </template>
 
+<style lang="scss" scoped>
+// @import "../assets/scss/Variables.scss";
 
-<style>
 
+#form {
+  width: 90%;
+  margin: auto;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.4em;
+
+  // .Asterisk {
+  //   color: $Red;
+  // }
+}
+
+h1 {
+  font-family: Dosis;
+  color: grey;
+  font-weight: bold;
+  padding: 40px;
+
+}
+
+.formtwo {
+  display: flex;
+  justify-content: space-between;
+
+  .dateFields {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+
+  .form-group {
+    margin: 1% 0 1% 0;
+  }
+}
+
+input {
+  height: 50px;
+  border: solid 2px grey;
+}
+
+#buttons-box {
+  display: flex;
+  align-self: end;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
+.check {
+  display: flex;
+  flex-direction: row;
+  margin-left: 130px;
+  margin-top: 33px;
+
+  label {
+    line-height: 50px;
+  }
+
+  .prueba {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: White;
+    color: White;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    width: 50px;
+    height: 50px;
+    border: 2px solid Blue;
+    background-position: 0 -2rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    margin-right: 10px;
+
+    //&:checked {
+      background-color: Blue;
+      color: Blue;
+      background-position: 0 0;
+    }
+  }
+
+
+
+ .btn-add {
+   margin-left: 2em;
+   background-color: Green;
+   width: 150px;
+ }
+
+#reset {
+  background-color: Yellow;
+  width: 150px;
+}
+
+@media (max-width:900px) {
+  .formtwo {
+    flex-direction: column;
+  }
+
+  .check {
+    margin-top: 15px;
+    margin-left: 0px;
+  }
+
+
+}
 </style>
