@@ -19,12 +19,12 @@ const description = ref('');
     <v-col cols="12" sm="10" md="8" lg="6">
 
       <v-card-title class="title d-flex justify-center">
-        <h1 color="orange-darken-1">Añadir Nuevo Evento</h1>
+        <h1 class="orange-darken-1--text">Añadir Nuevo Evento</h1>
       </v-card-title>
 
       <v-spacer></v-spacer> 
 
-      <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 .rounded-lg">
+      <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 .rounded-xl">
      
         <v-file-input bg-color="orange-lighten-5" class="pr-4 .rounded-shaped" label="Añadir foto" v-model="photo"></v-file-input>
 
