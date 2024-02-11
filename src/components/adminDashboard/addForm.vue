@@ -1,5 +1,7 @@
 <script setup>
 
+
+
 function resetForm() { 
   document.getElementById("dateevent").value = "";
   document.getElementById("hora").value = "";
@@ -17,19 +19,37 @@ function resetForm() {
   <v-row justify="center">
     <v-col cols="12" sm="10" md="8" lg="6">
       <v-card-title class="title">
+
         <h1>Añadir Nuevo Evento</h1>
+
       </v-card-title>
 
       <v-spacer></v-spacer>
 
       <v-card ref="form">
 
-          <v-file-input :rules="rules" accept="image/png, image/jpeg, image/bmp" placeholder="Añadir foto..." label="Añade foto..."></v-file-input>
+          <v-file-input :rules="rules" accept="image/png, image/jpeg, image/bmp" placeholder="Añadir foto..." label="Añadir foto..."></v-file-input>
 
         <v-card-text>
 
-          <v-text-field ref="title" v-model="title" label="Title" placeholder="Concert" required></v-text-field>
+          <v-text-field ref="title" v-model="title" label="Añadir título..." placeholder="Concert" required></v-text-field>
 
+        </v-card-text>
+        
+        <v-card-text class="differentsImputs">
+
+
+          <v-text-field ref="hour" v-model="hour" label="Añadir hora..." require outlined dense class="form-control form-control-lg" id="hora"></v-text-field> 
+
+        </v-card-text>
+
+          
+         
+  
+  
+         
+         
+       
           <div class="formtwo">
 
           <div class="dateFields">
@@ -51,7 +71,7 @@ function resetForm() {
           <label for="name"><span class="Asterisk">* </span>Introduce un titulo</label>
           <input type="text" class="form-control form-control-lg" id="titulo" />
 
-          </div>
+          </div> 
 
           <div class="form-group">
           <label for="name"><span class="Asterisk">* </span>Añade una descripción</label>
@@ -75,7 +95,7 @@ function resetForm() {
           <v-btn color="yellow-darken-4" id="send" @click="save()">Añadir</v-btn>
         </div>
         
-          </v-card-text> 
+         
   
       </v-card>
     </v-col>

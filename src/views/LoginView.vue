@@ -2,13 +2,14 @@
 import LoginForm from "./../components/login/LoginForm.vue";
 import HeaderComponent from '@/components/header/HeaderComponent.vue';
 import FooterComponent2 from '@/components/footer/FooterComponent2.vue';
+import DateComponent from '@/components/adminDashboard/DateComponent.vue';
 </script>
 
 <template>
     <div>
         <HeaderComponent />
         <h1>Iniciar sesión</h1>
-       
+        <DateComponent />
         <LoginForm />
         <FooterComponent2 />
     </div>
