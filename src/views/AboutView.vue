@@ -1,5 +1,4 @@
 <script setup>
-import AddForm from '@/components/adminDashboard/AddForm.vue';
 
 </script>
 
@@ -8,7 +7,7 @@ import AddForm from '@/components/adminDashboard/AddForm.vue';
     <h1>This is an about page</h1>
   </div>
    
-  <AddForm />
+  
 </template>
 
 <style>

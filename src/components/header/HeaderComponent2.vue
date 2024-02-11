@@ -1,13 +1,15 @@
-<script setup>
+<script>
+
 
 </script>
   
 <template>
     <header>
       <img src="../../assets/images/icons/logoHeader.png" alt="">
+      
       <div class="buttons">
-        <v-btn class="button1" color="yellow-darken-4">inicio</v-btn>
-        <v-btn class="button2" color="yellow-darken-4">cerrar sesión</v-btn>
+        <v-btn class="button1" color="orange-darken-1">Iniciar sesión</v-btn>
+        <v-btn class="button2" color="orange-darken-1">registrarse</v-btn>
       </div>
     </header> 
    
@@ -15,7 +17,7 @@
 
 <style lang="scss" scoped>
  header {
-   background-color: #80CBC4;
+   background-color:#80CBC4;
    width: 100%;
    height: 150px;
    display: flex;

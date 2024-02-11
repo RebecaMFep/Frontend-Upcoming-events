@@ -8,8 +8,8 @@
       <img src="../../assets/images/icons/logoHeader.png" alt="">
       
       <div class="buttons">
-        <v-btn class="button1" color="yellow-darken-4">Iniciar sesión</v-btn>
-        <v-btn class="button2" color="yellow-darken-4">registrarse</v-btn>
+        <v-btn class="button1" color="orange-darken-1">Iniciar sesión</v-btn>
+        <v-btn class="button2" color="orange-darken-1">registrarse</v-btn>
       </div>
     </header> 
    
