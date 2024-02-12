@@ -1,4 +1,53 @@
 <script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+const events = ref([]);
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('https://localhost8080/api/v1/events');
+    events.value = response.data;
+  } catch (error) {
+    console.error('Failed to fetch events:', error);
+  }
+});
+</script>
+
+<template>
+  <div>
+        <h1> ¡Bienvenido Administrador! </h1>
+    </div>
+    
+    <div>
+    <v-btn type="" color="orange">AÑADIR NUEVO EVENTO</v-btn>
+    </div>
+
+  <v-card class="mx-auto" max-width="425">
+    <v-list lines="two">
+      <v-list-subheader>Listado de Eventos</v-list-subheader>
+
+      <v-list-item v-for="event in events" :key="event.event_id">
+        <v-list-item-content>
+          <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-list-item>
+          <v-list-item-title>{{ event.name }}</v-list-item-title>
+          <v-list-item-subtitle>{{ event.date }} - {{ event.hour }} at {{ event.place }}</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ event.description }}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider inset></v-divider>
+
+      <!-- <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/lists/1.jpg" title="Brunch this wee?">
+        <template v-slot:subtitle>
+          <span class="font-weight-bold">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?
+        </template>
+      </v-list-item> -->
+    </v-list>
+  </v-card>
+</template>
+
+<!-- <script setup>
 import { ref } from 'vue';
 
 const events = ref([
@@ -20,19 +69,11 @@ const events = ref([
 </script>
 
 <template>
-    <div>
-        <h1> ¡Bienvenido Administrador! </h1>
-    </div>
-    
 
-    <div>
-    <v-btn type="" color="orange" block class="mt-4 rounded-lg">AÑADIR UN NUEVO EVENTO</v-btn>
-    </div>
 
     <div>
     <v-card class="mx-auto" max-width="600">
       <v-toolbar color="secondary">
-        <v-btn variant="text" icon="mdi-menu"></v-btn>
   
         <v-toolbar-title>Mis eventos</v-toolbar-title>
   
@@ -99,4 +140,4 @@ const events = ref([
 
 <style lang="scss">
 
-</style>
+</style> -->
