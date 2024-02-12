@@ -1,7 +1,6 @@
 <script setup>
 import LoginForm from "./../components/login/LoginForm.vue";
 import HeaderComponent from '@/components/header/HeaderComponent.vue';
-import FooterComponent2 from '@/components/footer/FooterComponent2.vue';
 </script>
 
 <template>
@@ -10,7 +9,7 @@ import FooterComponent2 from '@/components/footer/FooterComponent2.vue';
         <h1>Iniciar sesión</h1>
        
         <LoginForm />
-        <FooterComponent2 />
+       
     </div>
 </template>
 
