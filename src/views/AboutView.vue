@@ -1,13 +1,11 @@
 <script setup>
-
+import AddEvent from '@/components/adminDashboard/AddEvent.vue';
+import AddEventButton from '@/components/adminDashboard/AddEventButton.vue';
 </script>
 
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-   
-  
+  <AddEventButton />
+   <AddEvent />
 </template>
 
 <style>
