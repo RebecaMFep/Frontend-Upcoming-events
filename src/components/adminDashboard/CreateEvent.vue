@@ -1,54 +1,52 @@
-<script>
-    export default {
-      data () {
-        return {
-          title: '',
-          location: '',
-          imageUrl: '',
-          description: '',
-          date: new Date(),
-          time: new Date()
-        }
-      },
-      computed: {
-        formIsValid () {
-          return this.title !== '' &&
-            this.location !== '' &&
-            this.imageUrl !== '' &&
-            this.description !== ''
-        },
-        submittableDateTime () {
-          const date = new Date(this.date)
-          if (typeof this.time === 'string') {
-            let hours = this.time.match(/^(\d+)/)[1]
-            const minutes = this.time.match(/:(\d+)/)[1]
-            date.setHours(hours)
-            date.setMinutes(minutes)
-          } else {
-            date.setHours(this.time.getHours())
-            date.setMinutes(this.time.getMinutes())
-          }
-          return date
-        }
-      },
-      methods: {
-        onCreateMeetup () {
-          if (!this.formIsValid) {
-            return
-          }
-          const meetupData = {
-            title: this.title,
-            location: this.location,
-            imageUrl: this.imageUrl,
-            description: this.description,
-            date: this.submittableDateTime
-          }
-          this.$store.dispatch('createMeetup', meetupData)
-          this.$router.push('/meetups')
-        }
-      }
-    }
-  </script>
+<script setup>
+import { ref, computed } from 'vue';
+
+const title = ref('');
+const location = ref('');
+const imageUrl = ref('');
+const description = ref('');
+const date = ref(new Date());
+const time = ref(new Date());
+
+const formIsValid = computed(() => {
+  return title.value !== '' &&
+    location.value !== '' &&
+    imageUrl.value !== '' &&
+    description.value !== '';
+});
+
+const submittableDateTime = computed(() => {
+  const dateValue = new Date(date.value);
+  if (typeof time.value === 'string') {
+    let hours = time.value.match(/^(\d+)/)[1];
+    const minutes = time.value.match(/:(\d+)/)[1];
+    dateValue.setHours(hours);
+    dateValue.setMinutes(minutes);
+  } else {
+    dateValue.setHours(time.value.getHours());
+    dateValue.setMinutes(time.value.getMinutes());
+  }
+  return dateValue;
+});
+
+const onCreateMeetup = () => {
+  if (!formIsValid.value) {
+    return;
+  }
+  const meetupData = {
+    title: title.value,
+    location: location.value,
+    imageUrl: imageUrl.value,
+    description: description.value,
+    date: submittableDateTime.value
+  };
+  // Assuming you have a store module or similar setup for dispatching actions
+  store.dispatch('createMeetup', meetupData);
+  // Assuming you have a router installed and configured
+  router.push('/meetups');
+};
+</script>
+
 
 
 <template>
