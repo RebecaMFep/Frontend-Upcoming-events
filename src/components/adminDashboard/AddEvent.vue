@@ -1,20 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 
-import DayJsAdapter from '@date-io/dayjs'
 
-createVuetify({
-  date: {
-    adapter: DayJsAdapter,
-  },
-})
 
 
 const photo = ref(null);
 const title = ref('');
 const city = ref('');
 const date = ref(new Date().toISOString().substr(0,  10));
-const dateMenu = ref(false);
+const selectedDate = ref(null)
 const time = ref('');
 const timeMenu = ref(false);
 const capacity = ref(null);
@@ -60,7 +54,7 @@ const description = ref('');
                   <v-text-field bg-color="orange-lighten-5" v-model="date" label="Fecha" readonly v-bind="attrs" v-on="on"></v-text-field>
                 </template>
 
-                <v-date-picker v-model="date" @input="dateMenu = false"></v-date-picker>
+                <v-date-picker v-model="selectedDate"></v-date-picker>
               </v-menu> 
             </v-col>
 

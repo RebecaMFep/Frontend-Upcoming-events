@@ -1,14 +1,12 @@
 <script setup>
-import LoginForm from "./../components/login/LoginForm.vue";
-import HeaderComponent from '@/components/header/HeaderComponent.vue';
 </script>
 
 <template>
     <div>
-        <HeaderComponent />
+      
         <h1>Iniciar sesión</h1>
        
-        <LoginForm />
+        
        
     </div>
 </template>
