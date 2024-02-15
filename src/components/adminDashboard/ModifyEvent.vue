@@ -1,15 +1,34 @@
 <script setup>
 import { ref } from 'vue';
 
-const photo = ref(null);
 const title = ref('');
 const city = ref('');
-const date = ref(new Date().toISOString().substr(0,  10));
-const dateMenu = ref(false);
+const selectedDate = ref(null);
 const time = ref('');
-const timeMenu = ref(false);
+//const timeMenu = ref(false);
 const capacity = ref(null);
 const description = ref('');
+
+
+// Resetear el formulario
+
+const resetForm = () => {
+  title.value = ''
+  city.value = ''
+  selectedDate.value = ''
+  time.value = ''
+  capacity.value = ''
+  description.value = ''
+
+}
+
+// Editar el evento seleccionado
+
+const modifyEvent = () => {
+ 
+  // Actualizar el estado global o local con los nuevos datos del evento
+  // Hacer solicitud HTTP a backend para actualizar el evento
+}
 
 </script>
 
@@ -19,7 +38,7 @@ const description = ref('');
     <v-col cols="12" sm="10" md="8" lg="6">
 
       <v-card-title class="title d-flex justify-center">
-        <h1 class="orange-darken-1--text">Añadir Nuevo Evento</h1>
+        <h1 class="orange-darken-1--text">Editar Evento</h1>
       </v-card-title>
 
       <v-spacer></v-spacer> 
@@ -77,7 +96,7 @@ const description = ref('');
         <v-container class="d-flex justify-center gc-6">
       
           <v-btn color="orange-darken-1"  id="reset" @click="resetForm()">Borrar</v-btn>
-          <v-btn color="orange-darken-1" id="send" @click="save()">Modificar</v-btn>
+          <v-btn color="orange-darken-1" id="send" @click="modifyEvent()">Editar</v-btn>
 
         </v-container> 
    

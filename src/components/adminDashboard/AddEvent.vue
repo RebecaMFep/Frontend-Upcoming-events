@@ -1,18 +1,39 @@
 <script setup>
 import { ref } from 'vue';
 
-
-
-
-const photo = ref(null);
 const title = ref('');
 const city = ref('');
-const date = ref(new Date().toISOString().substr(0,  10));
-const selectedDate = ref(null)
+const selectedDate = ref(null);
 const time = ref('');
-const timeMenu = ref(false);
+//const timeMenu = ref(false);
 const capacity = ref(null);
 const description = ref('');
+
+
+// Resetear el formulario
+const resetForm = () => {
+  title.value = ''
+  city.value = ''
+  selectedDate.value = ''
+  time.value = ''
+  capacity.value = ''
+  description.value = ''
+
+}
+
+// Lista de eventos sincronizada con la base de datos 
+const eventList = ref([])
+
+// Añadir un nuevo evento a la lista
+const addEvent = () => {
+
+  // Añadir el evento
+  
+  if (newEvent.value) {
+    eventList.value.push({ name: newEvent.value })
+    newEvent.value = '' // para limpiar el campo de evento
+  }
+}
 
 </script>
 
@@ -79,8 +100,8 @@ const description = ref('');
 
         <v-container class="d-flex justify-center gc-6">
       
-          <v-btn color="orange-darken-1"  id="reset" @click="resetForm()">Borrar</v-btn>
-          <v-btn color="orange-darken-1" id="send" @click="save()">Añadir</v-btn>
+          <v-btn color="orange-darken-1" id="reset" @click="resetForm()">Borrar</v-btn>
+          <v-btn color="orange-darken-1" id="send" @click="addEvent()">Añadir</v-btn>
 
         </v-container> 
    
