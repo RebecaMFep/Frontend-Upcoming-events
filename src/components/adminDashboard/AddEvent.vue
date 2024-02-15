@@ -1,6 +1,15 @@
 <script setup>
 import { ref } from 'vue';
 
+import DayJsAdapter from '@date-io/dayjs'
+
+createVuetify({
+  date: {
+    adapter: DayJsAdapter,
+  },
+})
+
+
 const photo = ref(null);
 const title = ref('');
 const city = ref('');
