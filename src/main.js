@@ -27,6 +27,12 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 
+const vuetify = createVuetify({
+  components,
+  directives,
+  adapter: new DayJsAdapter(dayjs),
+})
+
 app.use(createPinia())
 app.use(router)
 app.use(vuetify)
