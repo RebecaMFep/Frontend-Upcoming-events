@@ -1,26 +1,38 @@
 <script setup>
 import { ref } from "vue"
 import { useRoute, useRouter } from "vue-router";
-//import { useUserStore } from "@/stores/user";
 
-// let uri = import.meta.env.VITE_API_ENDPOINT_GENERAL
+let username = ref("")
+let password = ref("")
 
-// const route = useRoute()
-// const router = useRouter()
-// const store = useUserStore()
-// let repository = new repository()
-// let service = new UserService(repository)
-// let user = []
-// let isLoaded = ref(false)
+let uri = import.meta.env.VITE_API_ENDPOINT_GENERAL
 
-// async function setUser() {
-//     user = await service.index()
-//     isLoaded.value = true
-//     console.log(user)
-//   }
+async function register(username, password) {
 
-  
+  try {
+    let authString = btoa(`${username}:${password}`)
+    const response = await fetch(uri + '/register', {
+      method: 'SET',
+      headers: {
+        'Authorization': 'Basic ' + authString
+      },
+      credentials: 'include'
+    });
+    const text = await response.json();
+    console.log(text);
+    redirectToLogin()
+  } catch (error) {
+    alert("Incorrect email or password")
+    throw new Error('Error occured during API fetch GET request while login')
+  }
+}
+
+function redirectToLogin() {
+  const redirectPath = route.query.redirect || '/login'
+  router.push(redirectPath)
+}
 </script>
+
 
 
 <template>
