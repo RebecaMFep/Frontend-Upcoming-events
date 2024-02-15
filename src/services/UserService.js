@@ -11,7 +11,7 @@ export default class UserService {
         const user = await this.repository.getAll()
         await this.repository.save(user)
         
-        animals.push(user)
+        users.push(user)
         return this.user
     }
 }
