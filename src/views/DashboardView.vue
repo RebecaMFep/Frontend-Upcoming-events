@@ -7,6 +7,5 @@ import AdminDashboard from '@/components/AdminDashboard.vue';
     <div>
         <AdminDashboard />
         <h1>Dashboard view</h1>
-
     </div>
 </template>
