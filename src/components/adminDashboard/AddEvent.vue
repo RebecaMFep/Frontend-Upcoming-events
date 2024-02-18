@@ -4,20 +4,32 @@ import { ref } from 'vue';
 const title = ref('');
 const city = ref('');
 const selectedDate = ref(null);
-const time = ref('');
-//const timeMenu = ref(false);
+const selectedTime = ref(null);
 const capacity = ref(null);
 const description = ref('');
-const date = ref(new Date(''))
+// const date = ref(new Date(''))
+const showCalendar = ref(false);
+const showTime = ref(false);
 
-const showCalendar = ref(false)
+const openCalendar = () => {
+  showCalendar.value = true;
+}
 
-const toggleCalendarMenu = () => {
-  showCalendarMenu.value = !showCalendarMenu.value;
-};
+const updateSelectedDate = (value) => {
+  selectedDate.value = value;
+} 
+
+const openTimePicker = () => {
+  showTime.value = true;
+}
+
+
+const updateSelectedTime = (value) => {
+  time.value = value;
+}
 
 // Resetear el formulario
-  const resetForm = () => {
+const resetForm = () => {
   title.value = ''
   city.value = ''
   selectedDate.value = ''
@@ -73,29 +85,21 @@ const addEvent = () => {
         <v-container>
           <v-row>
             <v-col cols="4">
-
-              <v-menu ref="dateMenu" v-model="dateMenu" :close-on-content-click="false" transition="scale-transition"
+              <v-menu ref="dateMenu" v-model="showCalendar" :close-on-content-click="false" transition="scale-transition"
                 offset-y max-width="290px" min-width="290px">
-
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field bg-color="orange-lighten-5" v-model="date" label="Fecha" readonly v-bind="attrs"
-                  @input="toggleCalendarMenu">
-                </v-text-field>
+                  <v-text-field bg-color="orange-lighten-5" label="Fecha" readonly v-bind="attrs" @click.stop="openCalendar" v-model="selectedDate">
+                  </v-text-field>
                 </template>
               </v-menu>
-            </v-col>
+            </v-col> 
 
             <v-col cols="4">
-              <v-menu ref="timeMenu" v-model="timeMenu" :close-on-content-click="false" transition="scale-transition"
+              <v-menu ref="timeMenu" v-model="showTime" :close-on-content-click="false" transition="scale-transition"
                 offset-y max-width="290px" min-width="290px">
-
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field bg-color="orange-lighten-5" v-model="time" label="Hora" readonly v-bind="attrs"
-                    v-on="on"></v-text-field>
+                  <v-text-field bg-color="orange-lighten-5" label="Hora" readonly v-bind="attrs" @click.stop="openTimePicker" v-model="selectedTime"></v-text-field>
                 </template>
-
-                <v-time-picker bg-color="orange-lighten-5" v-model="time" format="24hr"
-                  @input="timeMenu = false"></v-time-picker>
               </v-menu>
             </v-col>
 
@@ -103,6 +107,7 @@ const addEvent = () => {
               <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Number of Seats" min="1"
                 step="1"></v-text-field>
             </v-col>
+
           </v-row>
         </v-container>
 
@@ -122,7 +127,20 @@ const addEvent = () => {
   <v-row justify="space-around" v-show="showCalendar">
     <v-date-picker 
       elevation="24"
-      v-model="date"></v-date-picker>
+      v-model="selectedDate" @input="updateSelectedDate" no-time format="YYYY-MM-DD"></v-date-picker>
+     
+  </v-row> 
+  <v-row justify="space-around" v-show="showTime">
+    <v-time-picker  v-model="time" format="24hr"
+      elevation="24" @input="updateSelectedTime"></v-time-picker>
   </v-row>
+
   </template>
+
+  <style lang="scss" scoped>
+  .no-time-picker .v-time-picker {
+    display: none;
+  }
+
+  </style>
 

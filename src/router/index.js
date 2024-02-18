@@ -30,6 +30,11 @@ const router = createRouter({
       name: 'addevent',
       component: AddEventView,
     },
+    // {
+    //   path: '/modify-event',
+    //   name: 'modifyevent',
+    //   component: ModifyEventView,
+    // },
   ]
 })
 
