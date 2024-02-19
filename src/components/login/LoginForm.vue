@@ -33,10 +33,10 @@ async function login() {
     password: password.value
   }
 
-  store.login(dataConnection)
+  let isAuthenticated = await store.login(dataConnection)
 
-  if (store.user.isAuthenticated) {
-    const redirectPath = '/dashboard'
+  if (isAuthenticated) {
+    const redirectPath = route.query.redirect || '/dashboard'
     router.push(redirectPath)
   }
 }
