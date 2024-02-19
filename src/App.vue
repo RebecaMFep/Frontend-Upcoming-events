@@ -12,10 +12,10 @@ import HomeView from './views/HomeView.vue';
 
     <div class="wrapper">
       <nav>
-         <RouterLink to="/">Home</RouterLink> 
-        <!-- <RouterLink to="/about">About</RouterLink> -->
+        <!--  <RouterLink to="/">Home</RouterLink> 
+        <RouterLink to="/about">About</RouterLink> 
         <RouterLink to="/login">Login</RouterLink>
-        <RouterLink to="/dashboard">Dashboard</RouterLink>
+        <RouterLink to="/dashboard">Dashboard</RouterLink> -->
       </nav>
     </div>
   </header>
