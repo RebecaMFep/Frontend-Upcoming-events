@@ -1,5 +1,18 @@
-<script>
+<script setup>
+import { useRoute, useRouter } from "vue-router";
 
+const route = useRoute()
+const router = useRouter()
+
+const isLoginPage = route.path === '/login';
+
+const goToLogin = () => {
+  router.push('/login');
+};
+
+const goToHome = () => {
+  router.push('/');
+};
 
 </script>
   
@@ -8,7 +21,8 @@
       <img src="../../assets/images/icons/logoHeader.png" alt="">
       
       <div class="buttons">
-        <v-btn class="button1" color="orange-darken-1">Iniciar sesión</v-btn>
+        <v-btn class="button1" color="orange-darken-1" v-if="!isLoginPage" @click="goToLogin">Iniciar sesión</v-btn>
+        <v-btn class="button1" color="orange-darken-1" v-if="isLoginPage" @click="goToHome">{{ showFullText ? 'Show less' : 'Show more' }}</v-btn>
         <v-btn class="button2" color="orange-darken-1">registrarse</v-btn>
       </div>
     </header> 
