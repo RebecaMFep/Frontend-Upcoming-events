@@ -13,7 +13,7 @@ store.getEvents()
   <main>
 <div v-for="event in store.events">
   <CardsEvents :event="event" />
-
+  
 </div>
 
     
