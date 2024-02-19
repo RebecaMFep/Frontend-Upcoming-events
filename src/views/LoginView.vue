@@ -6,6 +6,7 @@ import LoginForm from "./../components/login/LoginForm.vue";
     <h1>Iniciar sesión</h1>
     <div id="login-box">  
         <LoginForm />
+        
     </div>
 </template>
 

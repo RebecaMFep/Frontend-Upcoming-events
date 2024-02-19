@@ -9,7 +9,6 @@ const capacity = ref(null);
 const description = ref('');
 // const date = ref(new Date(''))
 const showCalendar = ref(false);
-const showTime = ref(false);
 
 const openCalendar = () => {
   showCalendar.value = true;
@@ -19,14 +18,7 @@ const updateSelectedDate = (value) => {
   selectedDate.value = value;
 } 
 
-const openTimePicker = () => {
-  showTime.value = true;
-}
 
-
-const updateSelectedTime = (value) => {
-  time.value = value;
-}
 
 // Resetear el formulario
 const resetForm = () => {
@@ -72,13 +64,12 @@ const addEvent = () => {
         <v-container>
           <v-row>
             <v-col cols="6">
-              <v-text-field bg-color="orange-lighten-5" label="Añadir título" v-model="title"></v-text-field>
+              <v-text-field bg-color="orange-lighten-5" label="Título" v-model="title"></v-text-field>
             </v-col>
 
             <v-col cols="6">
               <v-text-field bg-color="orange-lighten-5" label="Ciudad" v-model="city"></v-text-field>
             </v-col>
-
           </v-row>
         </v-container>
 
@@ -95,17 +86,12 @@ const addEvent = () => {
             </v-col> 
 
             <v-col cols="4">
-              <v-menu ref="timeMenu" v-model="showTime" :close-on-content-click="false" transition="scale-transition"
-                offset-y max-width="290px" min-width="290px">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-text-field bg-color="orange-lighten-5" label="Hora" readonly v-bind="attrs" @click.stop="openTimePicker" v-model="selectedTime"></v-text-field>
-                </template>
-              </v-menu>
+              <v-text-field bg-color="orange-lighten-5" type="time" v-model="selectedTime" label="Time"></v-text-field>
             </v-col>
 
             <v-col cols="4">
-              <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Number of Seats" min="1"
-                step="1"></v-text-field>
+              <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Number of Seats" min="1" step="1">
+              </v-text-field>
             </v-col>
 
           </v-row>
@@ -127,20 +113,13 @@ const addEvent = () => {
   <v-row justify="space-around" v-show="showCalendar">
     <v-date-picker 
       elevation="24"
-      v-model="selectedDate" @input="updateSelectedDate" no-time format="YYYY-MM-DD"></v-date-picker>
-     
+      v-model="selectedDate" @input="updateSelectedDate" no-time format="YYYY-MM-DD">
+    </v-date-picker>
   </v-row> 
-  <v-row justify="space-around" v-show="showTime">
-    <v-time-picker  v-model="time" format="24hr"
-      elevation="24" @input="updateSelectedTime"></v-time-picker>
-  </v-row>
-
   </template>
 
   <style lang="scss" scoped>
-  .no-time-picker .v-time-picker {
-    display: none;
-  }
+
 
   </style>
 
