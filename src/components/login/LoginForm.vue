@@ -55,7 +55,7 @@ function redirectToAdminDashboard() {
         <v-form fast-fail @submit.prevent="login()">
           <v-text-field class="rounded-lg" v-model="username" label="Usuario" :rules="userRules"></v-text-field>
 
-          <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules"></v-text-field>
+          <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules" type="password" ></v-text-field>
 
           <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
 
@@ -65,18 +65,17 @@ function redirectToAdminDashboard() {
     </v-sheet>
   </div>
 </template>
+
 <style>
 .login-box {
-  /* height: 90%;
-    width: 100%; */
-  width: 80%;
+  width: 70%;
   border: 2px solid blue;
   border-radius: 20px;
-  justify-content: center;
+  margin-left: 10%;
 }
 .rounded-lg{
   margin-top: 5%;
-}
+} 
 
 .custom-border {
   border: 1px solid blue;
@@ -84,8 +83,7 @@ function redirectToAdminDashboard() {
 }
 
 .form {
-  margin-top: 10%;
   margin: 5%;
-  margin-bottom: 10%;
+
 }
 </style>
