@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import axios from 'axios';
 
 const title = ref('');
 const city = ref('');
@@ -16,9 +17,7 @@ const openCalendar = () => {
 
 const updateSelectedDate = (value) => {
   selectedDate.value = value;
-} 
-
-
+}
 
 // Resetear el formulario
 const resetForm = () => {
@@ -35,14 +34,32 @@ const resetForm = () => {
 const eventList = ref([])
 
 // Añadir un nuevo evento a la lista
-const addEvent = () => {
+const addEvent = async () => {
 
-  // Añadir el evento
+  try {
 
-  if (newEvent.value) {
-    eventList.value.push({ name: newEvent.value })
-    newEvent.value = '' // para limpiar el campo de evento
+    const uri = import.meta.env.VITE_APP_API_ENDPOINT
+
+    const data = {
+      title: title.value,
+      date: selectedDate.value,
+      hour: selectedTime.value,
+      place: city.value,
+      description: description.value, 
+    }
+
+    const config = {
+      withCredentials: true,
+    }
+
+    const response = await axios.post(uri + '/events', data, config)
+    const status = await response.status
+    console.log(status);
+
+  } catch (error) {
+    throw new Error('Error calling api: ' + error)
   }
+
 }
 
 </script>
@@ -79,18 +96,20 @@ const addEvent = () => {
               <v-menu ref="dateMenu" v-model="showCalendar" :close-on-content-click="false" transition="scale-transition"
                 offset-y max-width="290px" min-width="290px">
                 <template v-slot:activator="{ on, attrs }">
-                  <v-text-field bg-color="orange-lighten-5" label="Fecha" readonly v-bind="attrs" @click.stop="openCalendar" v-model="selectedDate">
+                  <v-text-field bg-color="orange-lighten-5" label="Fecha" readonly v-bind="attrs"
+                    @click.stop="openCalendar" v-model="selectedDate">
                   </v-text-field>
                 </template>
               </v-menu>
-            </v-col> 
+            </v-col>
 
             <v-col cols="4">
               <v-text-field bg-color="orange-lighten-5" type="time" v-model="selectedTime" label="Time"></v-text-field>
             </v-col>
 
             <v-col cols="4">
-              <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Number of Seats" min="1" step="1">
+              <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Number of Seats" min="1"
+                step="1">
               </v-text-field>
             </v-col>
 
@@ -111,15 +130,10 @@ const addEvent = () => {
   </v-row>
 
   <v-row justify="space-around" v-show="showCalendar">
-    <v-date-picker 
-      elevation="24"
-      v-model="selectedDate" @input="updateSelectedDate" no-time format="YYYY-MM-DD">
+    <v-date-picker elevation="24" v-model="selectedDate" @input="updateSelectedDate" no-time format="YYYY-MM-DD">
     </v-date-picker>
-  </v-row> 
-  </template>
+  </v-row>
+</template>
 
-  <style lang="scss" scoped>
-
-
-  </style>
+<style lang="scss" scoped></style>
 
