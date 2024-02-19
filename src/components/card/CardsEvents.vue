@@ -16,7 +16,6 @@ const props = defineProps({
     class="mx-auto my-12"
     max-width="250" :style="{ borderRadius: '15px', border: '2px solid blue', height: '440px'  }">
     
-<!--     <v-img cover height="200" src="http://localhost:8080/images/roma.jpg "></v-img> -->
 <v-img
 cover
 height="150"
