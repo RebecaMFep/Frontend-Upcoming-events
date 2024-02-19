@@ -1,24 +1,30 @@
 <script setup>
 import { ref } from "vue"
+import axios from 'axios'
 import { useRoute, useRouter } from "vue-router";
 
 let username = ref("")
 let password = ref("")
 
-let uri = import.meta.env.VITE_API_ENDPOINT_GENERAL
+let uri = import.meta.env.VITE_APP_API_ENDPOINT
 
-async function register(username, password) {
+async function register() {
 
   try {
-    let authString = btoa(`${username}:${password}`)
-    const response = await fetch(uri + '/register', {
-      method: 'SET',
+    let passwordEncrypted = btoa(`${password}`)
+
+    const data = {
+        username: username,
+        password: passwordEncrypted
+    }
+
+    const response = await axios.post(uri + '/users/register', data, {
       headers: {
-        'Authorization': 'Basic ' + authString
-      },
-      credentials: 'include'
-    });
-    const text = await response.json();
+        'Content-Type': 'application/json'
+      }
+    })
+    const status = response.status
+    
     console.log(text);
     redirectToLogin()
   } catch (error) {
