@@ -17,6 +17,7 @@ const deleteEvent = (event) => {
 
 };
 
+
 </script>
 
 <template>

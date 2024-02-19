@@ -1,14 +1,10 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HeaderComponent from './components/header/HeaderComponent.vue';
-import FooterComponent from './components/footer/FooterComponent.vue';
-import HomeView from './views/HomeView.vue';
 
 </script>
 
 <template>
   <header>
-    <HeaderComponent />
 
     <div class="wrapper">
       <nav>
@@ -22,7 +18,6 @@ import HomeView from './views/HomeView.vue';
 
   <v-app>
     <RouterView />
-    <FooterComponent />
   </v-app>
 </template>
 
