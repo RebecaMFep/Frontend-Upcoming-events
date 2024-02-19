@@ -14,14 +14,13 @@ const props = defineProps({
 
     <v-card
     class="mx-auto my-12"
-    max-width="250" :style="{ borderRadius: '15px', border: '2px solid blue', height: '440px'  }">
+    max-width="250" :style="{ borderRadius: '15px', border: '2px solid blue', height: '500px'  }">
     
-<!--     <v-img cover height="200" src="http://localhost:8080/images/roma.jpg "></v-img> -->
 <v-img
 cover
 height="150"
 width="300"
-src="http://localhost:8080/images/roma.jpg"></v-img>
+src="http://localhost:8080/api/v1/images/roma.jpg"></v-img>
 
     <v-card-item class="prueba"> 
         <v-card-title>{{ event.title }}</v-card-title>
