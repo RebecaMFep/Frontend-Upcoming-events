@@ -6,6 +6,9 @@ import { useRoute, useRouter } from "vue-router";
 let username = ref("")
 let password = ref("")
 
+let userRules
+let passwordRules
+
 let uri = import.meta.env.VITE_APP_API_ENDPOINT
 
 async function register() {
@@ -50,7 +53,7 @@ function redirectToLogin() {
             <v-text-field class="rounded-lg" v-model="username" label="Usuario" :rules="userRules"></v-text-field>
   
             <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules"></v-text-field>
-  
+            <!-- <v-text-field class="rounded-lg" v-model="validation" label="Validacion" :rules="validationdRules"></v-text-field> -->
             <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
           </v-form>
         </div>
