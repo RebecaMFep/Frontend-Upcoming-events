@@ -33,12 +33,16 @@ async function login() {
     password: password.value
   }
 
-  store.login(dataConnection)
+  let isAuthenticated = await store.login(dataConnection)
 
-  if (store.user.isAuthenticated) {
-    const redirectPath = '/dashboard'
+  if (isAuthenticated) {
+    const redirectPath = route.query.redirect || '/dashboard'
     router.push(redirectPath)
   }
+}
+function redirectToRegister() {
+  const redirectPath = route.query.redirect || '/register'
+  router.push(redirectPath)
 }
 
 function redirectToAdminDashboard() {
@@ -59,7 +63,7 @@ function redirectToAdminDashboard() {
 
           <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
 
-          <v-btn type="" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+          <v-btn type="link" @click="redirectToRegister()" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>
       </div>
     </v-sheet>
