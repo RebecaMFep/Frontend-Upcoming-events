@@ -35,14 +35,19 @@ async function login() {
 
   let isAuthenticated = await store.login(dataConnection)
 
-  if (isAuthenticated) {
+  if (isAuthenticated && store.user.roles == "ROLE_ADMIN") {
     const redirectPath = route.query.redirect || '/dashboard'
+    router.push(redirectPath)
+  }
+
+  if (isAuthenticated && store.user.roles == "ROLE_USER") {
+    const redirectPath = route.query.redirect || '/'
     router.push(redirectPath)
   }
 }
 
-function redirectToAdminDashboard() {
-  const redirectPath = route.query.redirect || '/'
+function redirectToRegister() {
+  const redirectPath = route.query.redirect || '/register'
   router.push(redirectPath)
 }
 
@@ -59,7 +64,7 @@ function redirectToAdminDashboard() {
 
           <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
 
-          <v-btn type="" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+          <v-btn type="link" @click="redirectToRegister()" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>
       </div>
     </v-sheet>
