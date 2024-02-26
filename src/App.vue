@@ -15,6 +15,7 @@ import FooterComponent from './components/footer/FooterComponent.vue';
         <RouterLink to="/about">About</RouterLink> 
         <RouterLink to="/login">Login</RouterLink>
         <RouterLink to="/dashboard">Dashboard</RouterLink>
+        <RouterLink to="/register">Registro</RouterLink>
       </nav>
     </div>
   </header>
