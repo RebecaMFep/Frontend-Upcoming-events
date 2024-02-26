@@ -3,36 +3,35 @@ import { ref } from "vue"
 import axios from 'axios'
 import { useRoute, useRouter } from "vue-router";
 
+let uri = import.meta.env.VITE_APP_API_ENDPOINT
 let username = ref("")
 let password = ref("")
 
-let userRules
-let passwordRules
-
-let uri = import.meta.env.VITE_APP_API_ENDPOINT
+const route = useRoute()
+const router = useRouter()
 
 async function register() {
 
   try {
-    let passwordEncrypted = btoa(`${password}`)
+    let passwordEncrypted = btoa(`${password.value}`)
 
     const data = {
-        username: username,
-        password: passwordEncrypted
+      username: username.value,
+      password: passwordEncrypted
     }
 
     const response = await axios.post(uri + '/users/register', data, {
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      withCredentials: true
     })
     const status = response.status
-    
-    console.log(text);
+
+    console.log(status);
     redirectToLogin()
   } catch (error) {
-    alert("Incorrect email or password")
-    throw new Error('Error occured during API fetch GET request while login')
+    throw new Error('Error occured during API fetch POST request while login : ' + error)
   }
 }
 
@@ -45,42 +44,43 @@ function redirectToLogin() {
 
 
 <template>
-    <div class="register-box">
-  
-      <v-sheet class="mx-auto rounded-lg register-box" style="">
-        <div class="form">
-          <v-form fast-fail @submit.prevent="register()">
-            <v-text-field class="rounded-lg" v-model="username" label="Usuario" :rules="userRules"></v-text-field>
-  
-            <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules"></v-text-field>
-            <!-- <v-text-field class="rounded-lg" v-model="validation" label="Validacion" :rules="validationdRules"></v-text-field> -->
-            <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
-          </v-form>
-        </div>
-      </v-sheet>
-    </div>
-  </template>
-  <style>
-  .register-box {
-    /* height: 90%;
+  <div class="register-box">
+
+    <v-sheet class="mx-auto rounded-lg register-box" style="">
+      <div class="form">
+        <v-form fast-fail @submit.prevent="register()">
+          <v-text-field class="rounded-lg" v-model="username" label="Usuario"></v-text-field>
+
+          <v-text-field class="rounded-lg" v-model="password" label="Contraseña"></v-text-field>
+          <!-- <v-text-field class="rounded-lg" v-model="validation" label="Validacion" :rules="validationdRules"></v-text-field> -->
+          <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+        </v-form>
+      </div>
+    </v-sheet>
+  </div>
+</template>
+<style>
+.register-box {
+  /* height: 90%;
       width: 100%; */
-    width: 80%;
-    border: 2px solid blue;
-    border-radius: 20px;
-    justify-content: center;
-  }
-  .rounded-lg{
-    margin-top: 5%;
-  }
-  
-  .custom-border {
-    border: 1px solid blue;
-    margin-bottom: 5%;
-  }
-  
-  .form {
-    margin-top: 10%;
-    margin: 5%;
-    margin-bottom: 10%;
-  }
-  </style>
+  width: 80%;
+  border: 2px solid blue;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.rounded-lg {
+  margin-top: 5%;
+}
+
+.custom-border {
+  border: 1px solid blue;
+  margin-bottom: 5%;
+}
+
+.form {
+  margin-top: 10%;
+  margin: 5%;
+  margin-bottom: 10%;
+}
+</style>
