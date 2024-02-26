@@ -1,7 +1,8 @@
 <script setup>
 import AdminDashboard from '@/components/AdminDashboard.vue';
 import { useEventStore } from "@/stores/event";
-import '@mdi/font/css/materialdesignicons.css';
+import { onMounted } from 'vue';
+
 import { createVuetify } from 'vuetify';
 
 import { ref } from 'vue';
@@ -10,18 +11,28 @@ const store = useEventStore()
 store.getEvents()
 
 
-const editEvent = (event) => {
-};
 
-const deleteEvent = (event) => {
+const deleteEvent = (id) => {
 
-};
+store.deleteEvent(id).catch(error => {
+    console.error('Error al eliminar el evento:', error)
+})
+} 
+
+onMounted(async () => {
+await store.getEvents();
+});
+
+
+
+
 
 </script>
 
 <template>
 
         <AdminDashboard />
+
     <v-container>
     <v-card>
     <v-card-title>Listado de Eventos</v-card-title>
@@ -51,14 +62,14 @@ const deleteEvent = (event) => {
                 <td>{{ event.place }}</td>
                 <td>{{ event.description }}</td>
                 <td class="options-cell">
-        <v-row no-gutters class="btn-icono">
-            <v-col cols="6">
-            <v-icon @click="editEvent(event)">mdi-pencil</v-icon>
-            </v-col>
-            <v-col cols="6">
-            <v-icon @click="deleteEvent(event)">mdi-delete</v-icon>
-            </v-col>
-        </v-row>
+                    <v-row no-gutters class="btn-icono">
+                <v-col cols="6">
+                    <i class="fa fa-edit" @click="editEvent(event)"></i>
+                </v-col>
+                <v-col cols="6">
+                    <i class="fa fa-trash" @click="deleteEvent(event.id)"></i>
+                </v-col>
+                </v-row>
         </td>
     
             </tr>
@@ -95,13 +106,29 @@ td {
 }
 
 .v-card {
-width: 80%;
+width: 90%;
 border: 2px solid blue;
 border-radius: 20px;
 justify-content: center;
 text-align: center;
 }
+.v-container{
+    margin-left: 30vh;
+}
 
+
+@media (max-width:   600px) {
+    .v-container {
+        margin-left:   5vh;
+    }
+}
+
+
+@media (min-width:   1200px) {
+    .v-container {
+        margin-left:   20vh; 
+}
+}
 
 </style>
 

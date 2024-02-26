@@ -26,8 +26,30 @@ export const useEventStore = defineStore('event', () => {
       throw new Error('Error Loading API: ' + error)
     }
 
-  
   }
 
-  return { events, getEvents }
+
+
+
+  const deleteEvent = async (id) => {
+    const uri = import.meta.env.VITE_APP_API_ENDPOINT
+    const options = {
+      baseURL: uri,
+      withCredentials: true,
+    }
+
+    try {
+      const response = await axios.delete(`/events/${id}`, options)
+      const status = await response.status
+      console.log(status);
+
+    if (status ===   200) {
+      await getEvents()
+    }
+  } catch (error) {
+    console.error('Error Deleting Event:', error);
+  }
+}
+
+  return { events, getEvents, deleteEvent }
 })
