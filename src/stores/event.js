@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export const useEventStore = defineStore('event', () => {
 
-  const events = reactive([])
+  const events = ref([])
   const isLoading = ref(false)
 
   const getEvents = async () => {
@@ -14,22 +14,22 @@ export const useEventStore = defineStore('event', () => {
     try {
       isLoading.value = true
 
+      events.value = []
       const options = {
         baseURL: uri
       }
 
       const response = await axios.get('/events', options)
       const data = await response.data
-      Object.assign(events, data)
+      // await Object.assign(events, data)
+      events.value = data
+      console.log(events.value);
       isLoading.value = false
     } catch (error) {
       throw new Error('Error Loading API: ' + error)
     }
 
   }
-
-
-
 
   const deleteEvent = async (id) => {
     const uri = import.meta.env.VITE_APP_API_ENDPOINT
@@ -41,11 +41,11 @@ export const useEventStore = defineStore('event', () => {
     try {
       const response = await axios.delete(`/events/${id}`, options)
       const status = await response.status
-      console.log(status);
-
-    if (status ===   200) {
-      await getEvents()
-    }
+      
+      if (status === 200) {
+        console.log(status);
+        await getEvents()
+      }
   } catch (error) {
     console.error('Error Deleting Event:', error);
   }

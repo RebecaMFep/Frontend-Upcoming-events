@@ -2,30 +2,15 @@
 import AdminDashboard from '@/components/AdminDashboard.vue';
 import { useEventStore } from "@/stores/event";
 import { onMounted } from 'vue';
-
 import { createVuetify } from 'vuetify';
-
 import { ref } from 'vue';
 
 const store = useEventStore()
 store.getEvents()
 
-
-
 const deleteEvent = (id) => {
-
-store.deleteEvent(id).catch(error => {
-    console.error('Error al eliminar el evento:', error)
-})
+    store.deleteEvent(id)
 } 
-
-onMounted(async () => {
-await store.getEvents();
-});
-
-
-
-
 
 </script>
 
