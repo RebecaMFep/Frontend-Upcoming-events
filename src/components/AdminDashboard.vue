@@ -5,14 +5,15 @@
 <template>
 
 <v-container class="d-flex flex-column align-self-center justify-center">
-
+<div class="container">
 <div class="welcome">
     <h1> ¡Bienvenido Administrador! </h1>
 </div>
 
 <div class="btn_add d-flex justify-center">
-    <v-btn type="submit" color="orange"  absolute :style="{ left: '20%', transform: 'translateX(-50%)', width: '30%'} " class="mb-4">AÑADIR NUEVO EVENTO</v-btn>
+    <v-btn type="submit" color="orange"  absolute :style="{ left: '30%', transform: 'translateX(-50%)', width: '90%'} " class="mb-4 small-text">AÑADIR NUEVO EVENTO</v-btn>
     </div>
+  </div>
 </v-container>
 
 </template>
@@ -22,6 +23,12 @@
   padding:   10px;
   border-bottom:   1px solid #ddd;
   justify-content: space-between;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+
 }
 
 
