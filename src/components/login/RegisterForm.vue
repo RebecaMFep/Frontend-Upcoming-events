@@ -51,7 +51,7 @@ function redirectToLogin() {
         <v-form fast-fail @submit.prevent="register()">
           <v-text-field class="rounded-lg" v-model="username" label="Usuario"></v-text-field>
 
-          <v-text-field class="rounded-lg" v-model="password" label="Contraseña"></v-text-field>
+          <v-text-field class="rounded-lg" v-model="password" label="Contraseña" type="password"></v-text-field>
           <!-- <v-text-field class="rounded-lg" v-model="validation" label="Validacion" :rules="validationdRules"></v-text-field> -->
           <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>

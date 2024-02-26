@@ -35,18 +35,19 @@ async function login() {
 
   let isAuthenticated = await store.login(dataConnection)
 
-  if (isAuthenticated) {
+  if (isAuthenticated && store.user.roles == "ROLE_ADMIN") {
     const redirectPath = route.query.redirect || '/dashboard'
     router.push(redirectPath)
   }
-}
-function redirectToRegister() {
-  const redirectPath = route.query.redirect || '/register'
-  router.push(redirectPath)
+
+  if (isAuthenticated && store.user.roles == "ROLE_USER") {
+    const redirectPath = route.query.redirect || '/'
+    router.push(redirectPath)
+  }
 }
 
-function redirectToAdminDashboard() {
-  const redirectPath = route.query.redirect || '/'
+function redirectToRegister() {
+  const redirectPath = route.query.redirect || '/register'
   router.push(redirectPath)
 }
 
