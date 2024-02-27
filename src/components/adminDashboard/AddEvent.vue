@@ -19,7 +19,7 @@ const updateSelectedDate = (value) => {
   selectedDate.value = value;
 }
 
-// Resetear el formulario
+
 const resetForm = () => {
 
   isOutstanding.value = '';
@@ -31,11 +31,10 @@ const resetForm = () => {
   description.value = '';
 
 }
-
-// Lista de eventos sincronizada con la base de datos 
+ 
 const eventList = ref([])
 
-// Añadir un nuevo evento a la lista
+
 const addEvent = async () => {
 
   try {

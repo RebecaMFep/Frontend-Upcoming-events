@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+//import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { modifyEvent } from './modifyEvent';
 
 const isOutstanding = ref(false);
 const title = ref('');
@@ -9,7 +11,6 @@ const selectedtime = ref('');
 const capacity = ref(0);
 const description = ref('');
 const showCalendar = ref(false);
-
 
 const openCalendar = () => {
   showCalendar.value = true;
@@ -35,11 +36,89 @@ const resetForm = () => {
 
 // Editar el evento seleccionado
 
-const modifyEvent = () => {
- 
-  // Actualizar el estado global o local con los nuevos datos del evento
-  // Hacer solicitud HTTP a backend para actualizar el evento
+const formData = ref({
+  isOutstanding: '',
+  title:'',
+  city: '',
+  selectedDate: '',
+  selectedtime: '',
+  capacity: 0,
+  description: '',
+});
+
+//llamada GET para el evento?
+
+const getEvent = async () => {
+
+
 }
+
+//  <template>
+//   <div>
+//     <!-- Aquí puedes mostrar los datos obtenidos -->
+//     <div v-if="posts.length">
+//       <div v-for="post in posts" :key="post.id">
+//         <h2>{{ post.title }}</h2>
+//         <p>{{ post.body }}</p>
+//       </div>
+//     </div>
+//   </div>
+// </template> 
+
+
+
+// const posts = ref([]); // Inicializa una referencia reactiva para los posts
+
+// onMounted(async () => {
+//   try {
+//     const response = await axios.get('https://localhost:8080/v1/events');
+//     posts.value = response.data; // Asigna los datos obtenidos a la referencia reactiva
+//   } catch (error) {
+//     console.error('Error al obtener los datos:', error);
+//     // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje al usuario
+//   }
+// });
+
+
+
+
+
+
+//misma llamada POST que en el de AddEvent
+
+const editEvent = async () => {
+
+try {
+
+  const uri = import.meta.env.VITE_APP_API_ENDPOINT
+
+  const data = {
+    isOutstanding: isOutstanding.value,
+    title: title.value,
+    date: selectedDate.value,
+    hour: selectedTime.value,
+    place: city.value,
+    capacity: capacity.value,
+    description: description.value, 
+  }
+
+  const config = {
+    withCredentials: true,
+  }
+
+  const response = await axios.post(uri + '/events', data, config)
+  const status = await response.status
+  console.log(status);
+
+} catch (error) {
+  throw new Error('Error calling api: ' + error)
+}
+
+}
+
+onMounted(fetchData);
+
+
 
 </script>
 
@@ -99,7 +178,7 @@ const modifyEvent = () => {
         <v-container class="d-flex justify-center gc-6">
       
           <v-btn color="orange-darken-1"  id="reset" @click="resetForm()">Borrar</v-btn>
-          <v-btn color="orange-darken-1" id="send" @click="modifyEvent()">Editar</v-btn>
+          <v-btn color="orange-darken-1" id="send" @click="editEvent()">Editar</v-btn>
 
         </v-container> 
    
