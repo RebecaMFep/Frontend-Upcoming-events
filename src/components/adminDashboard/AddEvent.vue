@@ -9,7 +9,6 @@ const selectedDate = ref(null);
 const selectedTime = ref(null);
 const capacity = ref(null);
 const description = ref('');
-// const date = ref(new Date(''))
 const showCalendar = ref(false);
 
 const openCalendar = () => {
@@ -23,14 +22,13 @@ const updateSelectedDate = (value) => {
 // Resetear el formulario
 const resetForm = () => {
 
-  
-  isOutstanding.value = ''
-  title.value = ''
-  city.value = ''
-  selectedDate.value = ''
-  time.value = ''
-  capacity.value = ''
-  description.value = ''
+  isOutstanding.value = '';
+  title.value = '';
+  city.value = '';
+  selectedDate.value = '';
+  time.value = '';
+  capacity.value = '';
+  description.value = '';
 
 }
 
@@ -45,6 +43,7 @@ const addEvent = async () => {
     const uri = import.meta.env.VITE_APP_API_ENDPOINT
 
     const data = {
+      isOutstanding: isOutstanding.value,
       title: title.value,
       date: selectedDate.value,
       hour: selectedTime.value,
