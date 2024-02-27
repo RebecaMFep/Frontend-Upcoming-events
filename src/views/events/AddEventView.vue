@@ -1,6 +1,6 @@
 <script setup>
 
-import AddEvent from '@/src/components/adminDashboard/AddEvent';
+import AddEvent from '@/src/components/adminDashboard/AddEvent.vue';
 
 </script>
 
