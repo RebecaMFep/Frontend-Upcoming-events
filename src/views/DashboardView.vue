@@ -7,6 +7,8 @@ import { useEventStore } from "@/stores/event";
 const store = useEventStore()
 let reloadComp = ref(false)
 
+store.getEvents()
+
 const deleteEvent = async (id) => {
     const isDeleted = await store.deleteEvent(id)
 
