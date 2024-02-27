@@ -72,9 +72,9 @@ const addEvent = async () => {
   <v-row justify="center">
     <v-col cols="12" sm="10" md="8" lg="6">
 
-      <v-card-title class="title d-flex justify-center">
+      <!-- <v-card-title class="title d-flex justify-center">
         <h1 color="orange-darken-1--text">Añadir Nuevo Evento</h1>
-      </v-card-title>
+      </v-card-title> -->
 
       <v-spacer></v-spacer>
 

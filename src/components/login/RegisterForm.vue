@@ -53,7 +53,7 @@ function redirectToLogin() {
 
           <v-text-field class="rounded-lg" v-model="password" label="Contraseña" type="password"></v-text-field>
           <!-- <v-text-field class="rounded-lg" v-model="validation" label="Validacion" :rules="validationdRules"></v-text-field> -->
-          <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+          <v-btn type="submit" color="orange-darken-1" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>
       </div>
     </v-sheet>
@@ -63,7 +63,7 @@ function redirectToLogin() {
 .register-box {
   /* height: 90%;
       width: 100%; */
-  width: 80%;
+  width: 70%;
   border: 2px solid blue;
   border-radius: 20px;
   justify-content: center;
