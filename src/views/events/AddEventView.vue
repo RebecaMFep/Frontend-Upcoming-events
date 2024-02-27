@@ -6,7 +6,7 @@ import AddEvent from '@/src/components/adminDashboard/AddEvent.vue';
 
 <template>
     <div>
-        <h1>Add Event</h1>
+        <h1>Añadir Evento</h1>
         <AddEvent />
     </div>
 </template>

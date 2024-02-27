@@ -4,7 +4,16 @@ import AdminDashboard from '@/components/AdminDashboard.vue';
 import { useEventStore } from "@/stores/event";
 
 
- const store = useEventStore()
+ //const store = useEventStore()
+
+
+const isSubscribed = ref(true); 
+
+const toggleSubscription = () => {
+  isSubscribed.value = !isSubscribed.value; 
+};
+
+
 // let reloadComp = ref(false)
 
 // const deleteEvent = async (id) => {
@@ -58,9 +67,12 @@ import { useEventStore } from "@/stores/event";
                             <v-col cols="6">
                                 <v-btn color="orange-darken-1" id="reset" @click="unsuscribeEvent()">Desinscribirse</v-btn>
                             </v-col>
-                            <!-- <v-col cols="6">
-                                <i class="fa fa-trash" @click="deleteEvent(event.id)"></i>
-                            </v-col> -->
+                            <v-col cols="6">
+                                <v-btn @click="toggleSubscription">
+                                <span v-if="isSubscribed">Desubscribirse</span>
+                                <span v-else>Inscribirse</span>
+                            </v-btn>
+                            </v-col>
                         </v-row>
                     </td>
                 </tr>
