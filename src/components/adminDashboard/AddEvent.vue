@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
+
 const title = ref('');
 const city = ref('');
 const selectedDate = ref(null);
