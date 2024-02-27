@@ -2,13 +2,13 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
+const isOutstanding = ref(false);
 const title = ref('');
 const city = ref('');
 const selectedDate = ref(null);
-const selectedTime = ref(null);
-const capacity = ref(null);
+const selectedTime = ref('');
+const capacity = ref(0);
 const description = ref('');
-// const date = ref(new Date(''))
 const showCalendar = ref(false);
 
 const openCalendar = () => {
@@ -21,12 +21,14 @@ const updateSelectedDate = (value) => {
 
 // Resetear el formulario
 const resetForm = () => {
-  title.value = ''
-  city.value = ''
-  selectedDate.value = ''
-  time.value = ''
-  capacity.value = ''
-  description.value = ''
+
+  isOutstanding.value = '';
+  title.value = '';
+  city.value = '';
+  selectedDate.value = '';
+  selectedTime.value = '';
+  capacity.value = 0;
+  description.value = '';
 
 }
 
@@ -41,6 +43,7 @@ const addEvent = async () => {
     const uri = import.meta.env.VITE_APP_API_ENDPOINT
 
     const data = {
+      isOutstanding: isOutstanding.value,
       title: title.value,
       date: selectedDate.value,
       hour: selectedTime.value,
@@ -68,15 +71,15 @@ const addEvent = async () => {
   <v-row justify="center">
     <v-col cols="12" sm="10" md="8" lg="6">
 
-      <v-card-title class="title d-flex justify-center">
-        <h1 class="orange-darken-1--text">Añadir Nuevo Evento</h1>
-      </v-card-title>
+      <!-- <v-card-title class="title d-flex justify-center">
+        <h1 color="orange-darken-1--text">Añadir Nuevo Evento</h1>
+      </v-card-title> -->
 
       <v-spacer></v-spacer>
 
-      <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 .rounded-xl">
+      <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 rounded-lg">
 
-        <!-- <v-file-input bg-color="orange-lighten-5" class="pr-4 .rounded-shaped" label="Añadir foto" v-model="photo"></v-file-input> -->
+        <v-checkbox  class="d-flex justify-end mr-8 " label="Destacado"></v-checkbox>
 
         <v-container>
           <v-row>
@@ -104,11 +107,11 @@ const addEvent = async () => {
             </v-col>
 
             <v-col cols="4">
-              <v-text-field bg-color="orange-lighten-5" type="time" v-model="selectedTime" label="Time"></v-text-field>
+              <v-text-field bg-color="orange-lighten-5" type="time" v-model="selectedTime" label="Hora"></v-text-field>
             </v-col>
 
             <v-col cols="4">
-              <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Number of Seats" min="1"
+              <v-text-field bg-color="orange-lighten-5" v-model="capacity" type="number" label="Aforo" min="1"
                 step="1">
               </v-text-field>
             </v-col>

@@ -1,13 +1,13 @@
 <script setup>
 
-import AddEvent from '@/src/components/adminDashboard/AddEvent';
+import ModifyEvent from '@/src/components/adminDashboard/ModifyEvent';
 
 </script>
 
 <template>
     <div class="addEvent">
         <h1>Add Event</h1>
-        <AddEvent />
+        <ModifyEvent />
     </div>
 </template>
 

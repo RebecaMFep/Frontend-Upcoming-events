@@ -62,9 +62,9 @@ function redirectToRegister() {
 
           <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules" type="password" ></v-text-field>
 
-          <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
+          <v-btn type="submit" color="orange-darken-1" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
 
-          <v-btn type="link" @click="redirectToRegister()" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+          <v-btn type="link" @click="redirectToRegister()" color="orange-darken-1" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>
       </div>
     </v-sheet>
