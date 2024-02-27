@@ -5,11 +5,11 @@ const isOutstanding = ref(false);
 const title = ref('');
 const city = ref('');
 const selectedDate = ref(null);
-const time = ref('');
-const capacity = ref(null);
+const selectedtime = ref('');
+const capacity = ref(0);
 const description = ref('');
 const showCalendar = ref(false);
-const showTime = ref(false);
+
 
 const openCalendar = () => {
   showCalendar.value = true;
@@ -19,26 +19,17 @@ const updateSelectedDate = (value) => {
   selectedDate.value = value;
 } 
 
-const openTimePicker = () => {
-  showTime.value = true;
-}
-
-
-const updateTime = (value) => {
-  time.value = value;
-}
-
 // Resetear el formulario
 
 const resetForm = () => {
 
-  isOutstanding.value = ''
-  title.value = ''
-  city.value = ''
-  selectedDate.value = ''
-  time.value = ''
-  capacity.value = ''
-  description.value = ''
+  isOutstanding.value = '';
+  title.value = '';
+  city.value = '';
+  selectedDate.value = '';
+  selectedtime.value = '';
+  capacity.value = 0;
+  description.value = '';
 
 }
 
@@ -98,7 +89,7 @@ const modifyEvent = () => {
             </v-col>
 
             <v-col cols="4">
-                <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Aforo" min="1" step="1"></v-text-field>
+                <v-text-field bg-color="orange-lighten-5" v-model="capacity" type="number" label="Aforo" min="1" step="1"></v-text-field>
             </v-col>
           </v-row>
         </v-container>
