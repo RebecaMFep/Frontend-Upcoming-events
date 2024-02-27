@@ -6,8 +6,8 @@ const isOutstanding = ref(false);
 const title = ref('');
 const city = ref('');
 const selectedDate = ref(null);
-const selectedTime = ref(null);
-const capacity = ref(null);
+const selectedTime = ref('');
+const capacity = ref(0);
 const description = ref('');
 const showCalendar = ref(false);
 
@@ -26,8 +26,8 @@ const resetForm = () => {
   title.value = '';
   city.value = '';
   selectedDate.value = '';
-  time.value = '';
-  capacity.value = '';
+  selectedTime.value = '';
+  capacity.value = 0;
   description.value = '';
 
 }
@@ -111,7 +111,7 @@ const addEvent = async () => {
             </v-col>
 
             <v-col cols="4">
-              <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Aforo" min="1"
+              <v-text-field bg-color="orange-lighten-5" v-model="capacity" type="number" label="Aforo" min="1"
                 step="1">
               </v-text-field>
             </v-col>
