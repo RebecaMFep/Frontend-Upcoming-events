@@ -1,34 +1,30 @@
-import { ref, reactive , computed } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
 export const useEventStore = defineStore('event', () => {
 
-  const events = ref([])
+  const events = reactive([])
   const isLoading = ref(false)
 
   const getEvents = async () => {
 
     const uri = import.meta.env.VITE_APP_API_ENDPOINT
-    
+
     try {
       isLoading.value = true
-
-      events.value = []
+      
       const options = {
         baseURL: uri
       }
 
       const response = await axios.get('/events', options)
       const data = await response.data
-      // await Object.assign(events, data)
-      events.value = data
-      console.log(events.value);
+      await Object.assign(events, data)
       isLoading.value = false
     } catch (error) {
       throw new Error('Error Loading API: ' + error)
     }
-
   }
 
   const deleteEvent = async (id) => {
@@ -40,16 +36,16 @@ export const useEventStore = defineStore('event', () => {
 
     try {
       const response = await axios.delete(`/events/${id}`, options)
-      const status = await response.status
-      
-      if (status === 200) {
-        console.log(status);
+      const status = response.status
+
+      if (status == 202) {
         await getEvents()
+        return true
       }
-  } catch (error) {
-    console.error('Error Deleting Event:', error);
+    } catch (error) {
+      console.error('Error Deleting Event:', error);
+    }
   }
-}
 
   return { events, getEvents, deleteEvent }
 })
