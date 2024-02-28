@@ -1,18 +1,16 @@
 <script setup>
+import { defineProps, ref, computed } from 'vue';
 
-import { defineProps } from 'vue';
 const props = defineProps({
     events: {
         type: Array,
         required: true,
     },
-
 });
 
-
-const items = [
+const items = ref([
     {   
-        isOutstanding : false,
+        isOutstanding : true,
         src: "http://localhost:8080/api/v1/images/event2.jpg"
     },
     {
@@ -28,22 +26,16 @@ const items = [
         src: "http://localhost:8080/api/v1/images/event7.png"
     },
     {
-        isOutstanding : true,
+        isOutstanding : false,
         src: "http://localhost:8080/api/v1/images/event8.jpeg"
     }
+]);
 
-];
-
+const outstandingItems = computed(() => items.value.filter(item => item.isOutstanding));
 </script>
 
-
-
-<template  >
+<template>
     <v-carousel>
-    <v-carousel-item
-    v-for="(item,i) in items"
-        :key="i"
-        :src="item.src"
-    ></v-carousel-item>
+        <v-carousel-item v-for="(item, i) in outstandingItems" :key="i" :src="item.src"></v-carousel-item>
     </v-carousel>
 </template>
