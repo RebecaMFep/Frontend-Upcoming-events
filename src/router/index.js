@@ -5,7 +5,7 @@ import RegisterView from '@/views/RegisterView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import { useAuthStore } from '@/stores/auth.js'
 import AddEventView from '@/components/adminDashboard/AddEvent.vue'
-
+import ModifyEventVue from '@/components/adminDashboard/ModifyEvent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,7 +48,7 @@ const router = createRouter({
      {
        path: '/modify-event',
        name: 'modifyevent',
-       component: ModifyEventView,
+       component: ModifyEventVue,
      },
   ]
 })

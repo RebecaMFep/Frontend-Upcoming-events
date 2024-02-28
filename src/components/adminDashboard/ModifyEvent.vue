@@ -1,7 +1,7 @@
 <script setup>
-//import { ref } from 'vue';
 import { ref, onMounted } from 'vue';
 import { modifyEvent } from './modifyEvent';
+import { useEventStore } from "@/stores/event";
 
 const isOutstanding = ref(false);
 const title = ref('');
@@ -46,48 +46,13 @@ const formData = ref({
   description: '',
 });
 
-//llamada GET para el evento?
 
-const getEvent = async () => {
-
-
-}
-
-//  <template>
-//   <div>
-//     <!-- Aquí puedes mostrar los datos obtenidos -->
-//     <div v-if="posts.length">
-//       <div v-for="post in posts" :key="post.id">
-//         <h2>{{ post.title }}</h2>
-//         <p>{{ post.body }}</p>
-//       </div>
-//     </div>
-//   </div>
-// </template> 
+const store = useEventStore()
 
 
 
-// const posts = ref([]); // Inicializa una referencia reactiva para los posts
-
-// onMounted(async () => {
-//   try {
-//     const response = await axios.get('https://localhost:8080/v1/events');
-//     posts.value = response.data; // Asigna los datos obtenidos a la referencia reactiva
-//   } catch (error) {
-//     console.error('Error al obtener los datos:', error);
-//     // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje al usuario
-//   }
-// });
-
-
-
-
-
-
-//misma llamada POST que en el de AddEvent
-
-const editEvent = async () => {
-
+const editEvent = async (id) => {
+  const isEdit = await store.editEvent(id)
 try {
 
   const uri = import.meta.env.VITE_APP_API_ENDPOINT
@@ -116,7 +81,7 @@ try {
 
 }
 
-onMounted(fetchData);
+//onMounted(fetchData);
 
 
 
@@ -127,15 +92,13 @@ onMounted(fetchData);
   <v-row justify="center">
     <v-col cols="12" sm="10" md="8" lg="6">
 
-      <v-card-title class="title d-flex justify-center">
-        <h1 color="orange-darken-1--text">Editar Evento</h1>
-      </v-card-title>
-
-      <v-spacer></v-spacer> 
 
       <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 rounded-lg">
      
-        <!-- <v-file-input bg-color="orange-lighten-5" class="pr-4 .rounded-shaped" label="Añadir foto" v-model="photo"></v-file-input> -->
+        <v-card-title  class="title d-flex justify-center">
+        <h1 >Editar Evento</h1>
+      </v-card-title>
+
         <v-checkbox  class="d-flex justify-end mr-8 " label="Destacado"></v-checkbox>
         <v-container>
           <v-row>
@@ -163,7 +126,7 @@ onMounted(fetchData);
             </v-col>
 
             <v-col cols="4">
-                  <v-text-field bg-color="orange-lighten-5" v-model="selectedTime" label="Hora"></v-text-field>
+                  <v-text-field bg-color="orange-lighten-5" type="time" v-model="selectedTime" label="Hora"></v-text-field>
               
             </v-col>
 

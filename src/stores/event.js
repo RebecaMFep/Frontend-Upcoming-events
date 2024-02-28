@@ -47,5 +47,25 @@ export const useEventStore = defineStore('event', () => {
     }
   }
 
-  return { events, getEvents, deleteEvent }
+  const editEvent = async (id) => {
+    const uri = import.meta.env.VITE_APP_API_ENDPOINT
+    const options = {
+      baseURL: uri,
+      withCredentials: true,
+    }
+
+    
+    try {
+      const response = await axios.edit(`/events/${id}`, options)
+      const status = response.status
+
+      if (status == 202) {
+        await editEvent()
+        return true
+      }
+    } catch (error) {
+      console.error('Error Modifying Event:', error);
+    }}
+
+  return { events, getEvents, deleteEvent, editEvent }
 })
