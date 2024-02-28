@@ -1,15 +1,16 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { modifyEvent } from './modifyEvent';
+import { useEventStore } from "@/stores/event";
 
 const isOutstanding = ref(false);
 const title = ref('');
 const city = ref('');
 const selectedDate = ref(null);
-const time = ref('');
-const capacity = ref(null);
+const selectedtime = ref('');
+const capacity = ref(0);
 const description = ref('');
 const showCalendar = ref(false);
-const showTime = ref(false);
 
 const openCalendar = () => {
   showCalendar.value = true;
@@ -19,36 +20,70 @@ const updateSelectedDate = (value) => {
   selectedDate.value = value;
 } 
 
-const openTimePicker = () => {
-  showTime.value = true;
-}
-
-
-const updateTime = (value) => {
-  time.value = value;
-}
-
 // Resetear el formulario
 
 const resetForm = () => {
 
-  isOutstanding.value = ''
-  title.value = ''
-  city.value = ''
-  selectedDate.value = ''
-  time.value = ''
-  capacity.value = ''
-  description.value = ''
+  isOutstanding.value = '';
+  title.value = '';
+  city.value = '';
+  selectedDate.value = '';
+  selectedtime.value = '';
+  capacity.value = 0;
+  description.value = '';
 
 }
 
 // Editar el evento seleccionado
 
-const modifyEvent = () => {
- 
-  // Actualizar el estado global o local con los nuevos datos del evento
-  // Hacer solicitud HTTP a backend para actualizar el evento
+const formData = ref({
+  isOutstanding: '',
+  title:'',
+  city: '',
+  selectedDate: '',
+  selectedtime: '',
+  capacity: 0,
+  description: '',
+});
+
+
+const store = useEventStore()
+
+
+
+const editEvent = async (id) => {
+  const isEdit = await store.editEvent(id)
+try {
+
+  const uri = import.meta.env.VITE_APP_API_ENDPOINT
+
+  const data = {
+    isOutstanding: isOutstanding.value,
+    title: title.value,
+    date: selectedDate.value,
+    hour: selectedTime.value,
+    place: city.value,
+    capacity: capacity.value,
+    description: description.value, 
+  }
+
+  const config = {
+    withCredentials: true,
+  }
+
+  const response = await axios.post(uri + '/events', data, config)
+  const status = await response.status
+  console.log(status);
+
+} catch (error) {
+  throw new Error('Error calling api: ' + error)
 }
+
+}
+
+//onMounted(fetchData);
+
+
 
 </script>
 
@@ -58,14 +93,17 @@ const modifyEvent = () => {
     <v-col cols="12" sm="10" md="8" lg="6">
 
       <v-card-title class="title d-flex justify-center">
-        <h1 color="orange-darken-1--text">Editar Evento</h1>
+        <h1>Editar Evento</h1>
       </v-card-title>
 
       <v-spacer></v-spacer> 
 
       <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 rounded-lg">
      
-        <!-- <v-file-input bg-color="orange-lighten-5" class="pr-4 .rounded-shaped" label="Añadir foto" v-model="photo"></v-file-input> -->
+        <v-card-title class="title d-flex justify-center">
+        <h1 color="orange-darken-1--text">Editar Evento</h1>
+      </v-card-title>
+      
         <v-checkbox  class="d-flex justify-end mr-8 " label="Destacado"></v-checkbox>
         <v-container>
           <v-row>
@@ -93,12 +131,12 @@ const modifyEvent = () => {
             </v-col>
 
             <v-col cols="4">
-                  <v-text-field bg-color="orange-lighten-5" v-model="selectedTime" label="Hora"></v-text-field>
+                  <v-text-field bg-color="orange-lighten-5" type="time" v-model="selectedTime" label="Hora"></v-text-field>
               
             </v-col>
 
             <v-col cols="4">
-                <v-text-field bg-color="orange-lighten-5" v-model="seatCount" type="number" label="Aforo" min="1" step="1"></v-text-field>
+                <v-text-field bg-color="orange-lighten-5" v-model="capacity" type="number" label="Aforo" min="1" step="1"></v-text-field>
             </v-col>
           </v-row>
         </v-container>
@@ -108,7 +146,7 @@ const modifyEvent = () => {
         <v-container class="d-flex justify-center gc-6">
       
           <v-btn color="orange-darken-1"  id="reset" @click="resetForm()">Borrar</v-btn>
-          <v-btn color="orange-darken-1" id="send" @click="modifyEvent()">Editar</v-btn>
+          <v-btn color="orange-darken-1" id="send" @click="editEvent()">Editar</v-btn>
 
         </v-container> 
    

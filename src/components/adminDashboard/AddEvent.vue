@@ -29,7 +29,7 @@ const updateSelectedDate = (value) => {
   selectedDate.value = value;
 }
 
-// Resetear el formulario
+
 const resetForm = () => {
 
   isOutstanding.value = '';
@@ -41,11 +41,10 @@ const resetForm = () => {
   description.value = '';
 
 }
-
-// Lista de eventos sincronizada con la base de datos 
+ 
 const eventList = ref([])
 
-// Añadir un nuevo evento a la lista
+
 const addEvent = async () => {
 
   try {
@@ -86,9 +85,9 @@ const formattedDate = computed(() => { return date.format(selectedDate.value, 'f
   <v-row justify="center">
     <v-col cols="12" sm="10" md="8" lg="6">
 
-      <!-- <v-card-title class="title d-flex justify-center">
-        <h1 color="orange-darken-1--text">Añadir Nuevo Evento</h1>
-      </v-card-title> -->
+      <v-card-title class="title d-flex justify-center">
+        <h1>Añadir Nuevo Evento</h1>
+      </v-card-title>
 
       <v-spacer></v-spacer>
 
