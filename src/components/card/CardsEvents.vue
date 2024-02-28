@@ -22,7 +22,7 @@ const goToLogin = () => {
 <template>
 
     <v-card
-    class="mx-auto my-12"
+    class="mx-auto my-12" color="teal-lighten-5"
     max-width="250" :style="{ borderRadius: '15px', border: '2px solid blue', height: '500px'  }">
     
 <v-img
