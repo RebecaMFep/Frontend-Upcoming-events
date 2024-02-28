@@ -7,6 +7,8 @@ import { useEventStore } from "@/stores/event";
 const store = useEventStore()
 let reloadComp = ref(false)
 
+store.getEvents()
+
 const deleteEvent = async (id) => {
     const isDeleted = await store.deleteEvent(id)
 
@@ -33,7 +35,7 @@ const editEvent = (event) => {
     <AdminDashboard />
 
     <v-container>
-        <v-table fixed-header="" height="300px">
+        <v-table fixed-header="" height="500px">
             <thead>
                 <tr>
                     <th class="text-left"> Id </th>
