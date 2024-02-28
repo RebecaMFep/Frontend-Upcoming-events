@@ -1,8 +1,6 @@
 <script setup>
 
-
 import { useRoute, useRouter } from "vue-router";
-import { ref } from 'vue';
 
 const route = useRoute()
 const router = useRouter()
@@ -66,8 +64,5 @@ color="orange-darken-1" absolute :style="{ left: '50%', transform: 'translateX(-
         display: flex;
         justify-content: space-between;
     }
-
-
-
 </style>
 

@@ -1,6 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { modifyEvent } from './modifyEvent';
+import { ref,} from 'vue';
 import { useEventStore } from "@/stores/event";
 
 const isOutstanding = ref(false);
