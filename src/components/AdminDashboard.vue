@@ -11,7 +11,7 @@
 </div>
 
 <div class="btn_add d-flex justify-center">
-    <v-btn type="submit" color="orange"  absolute :style="{ left: '30%', transform: 'translateX(-50%)', width: '90%'} " class="mb-4 small-text">AÑADIR NUEVO EVENTO</v-btn>
+    <v-btn type="submit" color="orange-lighten-5"  absolute :style="{ left: '30%', transform: 'translateX(-50%)', width: '90%'} " class="mb-4 small-text">AÑADIR NUEVO EVENTO</v-btn>
     </div>
   </div>
 </v-container>
