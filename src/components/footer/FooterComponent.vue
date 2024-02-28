@@ -8,10 +8,8 @@ const icons = [
 ];
 </script>
 
-
-
 <template>
-  <v-footer color="teal-lighten-3">
+  <v-footer class="footer" color="teal-lighten-3">
     <v-container class="d-flex justify-center">
       <v-card color="teal-lighten-3" class="flex" flat tile>
         <v-card-title class="teal">
@@ -31,4 +29,12 @@ const icons = [
   </v-footer>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+}
+</style>

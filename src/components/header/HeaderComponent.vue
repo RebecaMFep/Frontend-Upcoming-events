@@ -46,8 +46,8 @@ const goToRegister = () => {
         {{ isLoggedIn ? 'Cerrar Sesión' : 'Iniciar Sesión' }}
       </v-btn> -->
 
-      <v-btn v-if="!isAuthenticated" @click="login"  color="primary">Log in</v-btn>
-    <v-btn v-else @click="logout" color="primary">Log out</v-btn>
+      <!-- <v-btn v-if="!isAuthenticated" @click="login"  color="primary">Log in</v-btn>
+    <v-btn v-else @click="logout" color="primary">Log out</v-btn> -->
 
         <v-btn class="button1" color="orange-darken-1"  @click="goToLogin">iniciar sesión</v-btn>
         <v-btn class="button2" color="orange-darken-1" @click="goToRegister">registrarse</v-btn>
