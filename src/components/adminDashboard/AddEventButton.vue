@@ -10,7 +10,7 @@ const navigateToForm = () => {
 </script>
 
 <template>
-    <v-btn class="mr-4" color="orange-darken-1" id="send"  @click="navigateToForm">Anadir nuevo evento</v-btn>
+    <v-btn class="d-flex" color="orange-darken-1" id="send"  @click="navigateToForm">Anadir nuevo evento</v-btn>
 </template>
 
 <style lang="scss" scoped>
