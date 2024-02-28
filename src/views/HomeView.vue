@@ -1,7 +1,7 @@
 <script setup>
 import { useEventStore } from "@/stores/event";
-import CardsEvents  from "@/components/cards/CardsEvents.vue";
-import Carusel from "@/components/cards/Carusel.vue";
+import CardsEvents  from "@/components/card/CardsEvents.vue";
+import Carusel from "@/components/card/Carusel.vue";
 
 const store = useEventStore()
 store.getEvents()

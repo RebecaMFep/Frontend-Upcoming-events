@@ -69,21 +69,21 @@ const editEvent = () => {
 <style lang="scss" scoped>
 
 main {
-    background-color: #FFE0B2;
+    background-color: #FFF3E0;
 }
 
 .background {
-    background-color: #FFE0B2;
+    background-color:#FFE0B2;
 }
 
-.titlesList {
-    //background-color: #B2DFDB;
-    margin-bottom: 15px;
-}
-.adminList {
-    background-color:#E0F2F1;
-    margin-bottom: 50px;
-}
+// .titlesList {
+//     //background-color: #B2DFDB;
+//     margin-bottom: 15px;
+// }
+// .adminList {
+//     background-color:#E0F2F1;
+//     margin-bottom: 50px;
+// }
 
 
 .text-left {

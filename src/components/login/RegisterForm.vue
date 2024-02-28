@@ -45,10 +45,12 @@ function redirectToLogin() {
 
 <template>
   <div class="register-box">
-
-    <v-sheet class="mx-auto rounded-lg register-box" style="">
+    <v-card-title class="title d-flex justify-center">
+        <h1 class="startRegister">Registrarse</h1>
+      </v-card-title>
+    <v-sheet class="mx-auto rounded-lg register-box" color="teal-lighten-5">
       <div class="form">
-        <v-form fast-fail @submit.prevent="register()">
+        <v-form fast-fail class="mt-10 mb-13 pa-4 rounded-lg" @submit.prevent="register()">
           <v-text-field class="rounded-lg" v-model="username" label="Usuario"></v-text-field>
 
           <v-text-field class="rounded-lg" v-model="password" label="Contraseña" type="password"></v-text-field>
@@ -59,28 +61,30 @@ function redirectToLogin() {
     </v-sheet>
   </div>
 </template>
-<style>
+<style lang="scss" scoped>
 .register-box {
-  /* height: 90%;
-      width: 100%; */
-  width: 70%;
-  border: 2px solid blue;
+  width: 60%;
+  margin-left: 20%; 
   border-radius: 20px;
   justify-content: center;
 }
 
-.rounded-lg {
-  margin-top: 5%;
+.startRegister {
+  color: #00695C;
 }
 
-.custom-border {
-  border: 1px solid blue;
-  margin-bottom: 5%;
-}
+// .rounded-lg {
+//   margin-top: 5%;
+// }
 
-.form {
-  margin-top: 10%;
-  margin: 5%;
-  margin-bottom: 10%;
-}
+// .custom-border {
+//   border: 1px solid blue;
+//   margin-bottom: 5%;
+// }
+
+// .form {
+//   margin-top: 10%;
+//   margin: 5%;
+//   margin-bottom: 10%;
+// }
 </style>

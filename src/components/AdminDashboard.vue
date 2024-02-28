@@ -18,10 +18,10 @@ import AddEventButton from './adminDashboard/AddEventButton.vue';
 <style lang="scss" scoped>
 
 main {
-  background-color:#FFE0B2;
+  background-color:#FFF3E0;
 }
 .background {
- background-color:#FFE0B2;
+ background-color:#FFF3E0;
 }
 
 adminTitle {

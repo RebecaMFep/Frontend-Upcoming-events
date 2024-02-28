@@ -3,13 +3,12 @@ import LoginForm from "./../components/login/LoginForm.vue";
 </script>
 
 <template>
+
     <main>
-    <h1>Iniciar sesión</h1>
-    <div id="login-box">  
-        <LoginForm />
-        
-    </div>
-</main>
+    
+    <LoginForm />
+    </main>
+
 </template>
 
 <style lang="scss" scoped>
@@ -19,19 +18,13 @@ main {
     background-position:left;
     opacity: 0.9;
 }
-#login-box{
-    margin-top: 5%;
-    margin-left: 12%;
-    justify-self: center;
-    margin-bottom: 10%;
-}
-h1 {
-    margin-top: 2%;
-    justify-self: center;
-    color: blue;
-    text-align: center;
-    font-size: x-large;
-}
+// #login-box{
+//     margin-top: 5%;
+//     margin-left: 12%;
+//     justify-self: center;
+//     margin-bottom: 10%;
+// }
+
 </style >
 
 
