@@ -53,6 +53,7 @@ function redirectToRegister() {
 
 </script>
 <template>
+ 
   <div class="login-box">
     <v-card-title class="title d-flex justify-center">
         <h1 class="addTitle">Iniciar Sesión</h1>
@@ -72,9 +73,12 @@ function redirectToRegister() {
       </div>
     </v-sheet>
   </div>
+
 </template>
 
 <style lang="scss" scoped>
+
+
 .login-box {
   
   width: 60%;

@@ -14,10 +14,10 @@ import LoginForm from "./../components/login/LoginForm.vue";
 <style lang="scss" scoped>
 main {
     background-image: url(../../public/image/fondo4.jpg);
-    background-size: cover;
-    background-position:left;
-    opacity: 0.9;
-}
+     background-size: cover;
+     background-position:left;
+     opacity: 0.9;
+ }
 // #login-box{
 //     margin-top: 5%;
 //     margin-left: 12%;

@@ -34,6 +34,6 @@ const icons = [
 .footer {
   bottom: 0;
   width: 100%;
-  height: 150px;
+  height: 125px;
 }
 </style>
