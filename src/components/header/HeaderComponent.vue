@@ -13,16 +13,19 @@ const router = useRouter()
 
 const isAuthenticated = ref(false);
 
-const login = async () => {
- if (usersStore.currentUser.events.find((event) => props.event.event_title == event.event_title)) {
-    isAuthenticated.value = true;
- };
+const login = () => {
+      // Lógica de autenticación aquí
+      isAuthenticated.value = true; // Actualiza el estado a autenticado después de un inicio de sesión exitoso
+    };
 
- const logout = () => {
-  isAuthenticated.value = false;
- };
+    const logout = () => {
+      // Lógica de cierre de sesión aquí
+      isAuthenticated.value = false; // Actualiza el estado a no autenticado después de un cierre de sesión exitoso
+    };
 
-}
+
+ 
+
 
 const goToLogin = () => {
   router.push('/login');
@@ -46,7 +49,7 @@ const goToRegister = () => {
       <v-btn v-if="!isAuthenticated" @click="login"  color="primary">Log in</v-btn>
     <v-btn v-else @click="logout" color="primary">Log out</v-btn>
 
-        <v-btn class="button1" color="orange-darken-1" @click="goToLogin">iniciar sesión</v-btn>
+        <v-btn class="button1" color="orange-darken-1"  @click="goToLogin">iniciar sesión</v-btn>
         <v-btn class="button2" color="orange-darken-1" @click="goToRegister">registrarse</v-btn>
 
       </div>
