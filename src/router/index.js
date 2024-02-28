@@ -5,6 +5,7 @@ import RegisterView from '@/views/RegisterView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import { useAuthStore } from '@/stores/auth.js'
 import AddEventView from '@/components/adminDashboard/AddEvent.vue'
+import ModifyEventView from '@/views/events/ModifyEventView.vue';
 
 
 const router = createRouter({
