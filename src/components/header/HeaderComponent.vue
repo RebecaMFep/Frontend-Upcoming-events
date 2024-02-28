@@ -1,31 +1,35 @@
 <script setup>
+
 import { useRoute, useRouter } from "vue-router";
+import { ref } from 'vue';
 
 const route = useRoute()
 const router = useRouter()
 
-const isLoggedIn = false; 
-const isLoginPage = router.currentRoute.value.name === 'login'; 
+// const isLoggedIn = false; 
+// const isLoginPage = router.currentRoute.value.name === 'login'; 
 
-const toggleAuth = () => {
-  if (isLoggedIn) {
-    logout();
-  } else {
-    goToLogin();
-  }
+
+
+const isAuthenticated = ref(false);
+
+const login = async () => {
+ if (usersStore.currentUser.events.find((event) => props.event.event_title == event.event_title)) {
+    isAuthenticated.value = true;
+ };
+
+ const logout = () => {
+  isAuthenticated.value = false;
+ };
+
 }
-
 
 const goToLogin = () => {
   router.push('/login');
 }
 
-const logout = () => {
-  // Hola soy Ana, se que falta código script aquí, pero si lo pongo se pone la pantalla en blanca, falta lógica del log out que no la he conseguido sacar. Mucha suerte chicos, y un placer haber estado estas semanas con vosotros. El team 4 lo va a petar!!!
-}
-
-const goToHome = () => {
-  router.push('/');
+const goToRegister = () => {
+  router.push('/register');
 }
 </script>
   
@@ -35,13 +39,15 @@ const goToHome = () => {
       
       <div class="buttons">
 
-    
-
-        <v-btn class="button1" color="orange-darken-1" @click="toggleAuth">
+   <!-- <v-btn class="button1" color="orange-darken-1" @click="toggleAuth">
         {{ isLoggedIn ? 'Cerrar Sesión' : 'Iniciar Sesión' }}
-      </v-btn>
-        <v-btn class="button1" color="orange-darken-1" v-if="isLoggedIn && !isLoginPage" @click="goToHome">Home</v-btn>
-        <v-btn class="button2" color="orange-darken-1">registrarse</v-btn>
+      </v-btn> -->
+
+      <v-btn v-if="!isAuthenticated" @click="login"  color="primary">Log in</v-btn>
+    <v-btn v-else @click="logout" color="primary">Log out</v-btn>
+
+        <v-btn class="button1" color="orange-darken-1" @click="goToLogin">iniciar sesión</v-btn>
+        <v-btn class="button2" color="orange-darken-1" @click="goToRegister">registrarse</v-btn>
 
       </div>
     </header> 
