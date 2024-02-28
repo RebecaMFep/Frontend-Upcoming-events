@@ -6,7 +6,7 @@ import AddEvent from '@/src/components/adminDashboard/AddEvent';
 
 <template>
     
-    <main>
+    <main class="styles">
        
         <AddEvent />
     </main>
@@ -14,7 +14,7 @@ import AddEvent from '@/src/components/adminDashboard/AddEvent';
 
 <style lang="scss">
 
-main {
+styles {
     background-image: url(../../public/image/fondo4.jpg);
     background-size: cover;
     background-position:left;

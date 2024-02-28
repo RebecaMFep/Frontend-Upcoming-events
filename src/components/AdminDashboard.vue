@@ -6,7 +6,9 @@ import AddEventButton from './adminDashboard/AddEventButton.vue';
   <main>
   <v-container class="background">
     <v-row justify="space-between" class="ma-3">
+      <div class="adminTitle">
       <h1> ¡Bienvenido Administrador! </h1>
+    </div>
       <AddEventButton />
     </v-row>
   </v-container>
@@ -20,6 +22,12 @@ main {
 }
 .background {
  background-color:#FFE0B2;
+}
+
+adminTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 </style>
