@@ -26,9 +26,8 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
     <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="SASS" alt="SASS" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JS" alt="JS" width="40" height="40"/>&nbsp;
-    
-   
-    
+    ![JAVA](JAVA.png)
+
  </div>
    
 
@@ -41,6 +40,10 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
     <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg"  title="GIT" alt="GIT" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/figma/figma-original.svg" title="figma" alt="figma" width="40" height="40"/>&nbsp;
+    ![Docker](DOCKER.png)
+    ![my-SQL](my-SQL.png)
+    ![spring-boot](spring-boot.png)
+    ![vuetify](vuetify.png)
 </div>
 
 ## COLABORADORES/AS:
@@ -86,8 +89,4 @@ npm run dev
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
 
-```sh
-npm run test:unit
-```
