@@ -1,5 +1,12 @@
 <script setup>
 
+
+import { useRoute, useRouter } from "vue-router";
+import { ref } from 'vue';
+
+const route = useRoute()
+const router = useRouter()
+
 const props = defineProps({
     event: {
         type: Object,
@@ -7,6 +14,10 @@ const props = defineProps({
     },
 
 });
+
+const goToLogin = () => {
+  router.push('/login');
+}
 
 </script>
 
@@ -38,7 +49,7 @@ src="http://localhost:8080/api/v1/images/roma.jpg"></v-img>
 
 
 <v-btn
-color="orange" absolute :style="{ left: '50%', transform: 'translateX(-50%)', width: '100px', fontSize: 'x-small' }" class="mb-2">Inscribirme
+color="orange-darken-1" absolute :style="{ left: '50%', transform: 'translateX(-50%)', width: '100px', fontSize: 'x-small' }" class="mb-2" @click="goToLogin">Inscribirme
 </v-btn>
 
 </v-card>
