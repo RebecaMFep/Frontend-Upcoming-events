@@ -35,7 +35,7 @@ const editEvent = (event) => {
     <AdminDashboard />
 
     <v-container>
-        <v-table fixed-header="" height="300px">
+        <v-table fixed-header="" height="500px">
             <thead>
                 <tr>
                     <th class="text-left"> Id </th>

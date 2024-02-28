@@ -44,6 +44,7 @@ const router = createRouter({
       path: '/add-event',
       name: 'addevent',
       component: AddEventView,
+      meta: { requiresAuth: true }
     },
     // {
     //   path: '/modify-event',
