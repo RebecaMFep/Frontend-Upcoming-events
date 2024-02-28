@@ -15,7 +15,7 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
 ## DISEÑO DE LA WEB CON FIGMA
 
 
-## ORGANIZACIÓN DEL TRABAJO
+
 
 
 
@@ -30,9 +30,6 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
 
  </div>
    
-
-
-
 
 ## HERRAMIENTAS UTILIZADAS :hammer:
 <div>
