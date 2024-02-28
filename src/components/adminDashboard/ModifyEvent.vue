@@ -92,13 +92,18 @@ try {
   <v-row justify="center">
     <v-col cols="12" sm="10" md="8" lg="6">
 
+      <v-card-title class="title d-flex justify-center">
+        <h1>Editar Evento</h1>
+      </v-card-title>
+
+      <v-spacer></v-spacer> 
 
       <v-card ref="form" color="orange-lighten-3" class="mt-10 mb-13 pt-10 pb-10 rounded-lg">
      
-        <v-card-title  class="title d-flex justify-center">
-        <h1 >Editar Evento</h1>
+        <v-card-title class="title d-flex justify-center">
+        <h1 color="orange-darken-1--text">Editar Evento</h1>
       </v-card-title>
-
+      
         <v-checkbox  class="d-flex justify-end mr-8 " label="Destacado"></v-checkbox>
         <v-container>
           <v-row>
