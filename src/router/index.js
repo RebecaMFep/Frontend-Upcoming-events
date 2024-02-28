@@ -47,11 +47,11 @@ const router = createRouter({
       component: AddEventView,
       meta: { requiresAuth: true }
     },
-     {
+   /*   {
       path: '/modify-event',
       name: 'modifyevent',
       component: ModifyEventView,
-    }, 
+    },  */
   ]
 })
 
