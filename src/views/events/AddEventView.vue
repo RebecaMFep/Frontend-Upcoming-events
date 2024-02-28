@@ -6,19 +6,15 @@ import AddEvent from '@/src/components/adminDashboard/AddEvent';
 
 <template>
     
-    <main class="styles">
+    <div>
        
         <AddEvent />
-    </main>
+        
+    </div>
 </template>
 
 <style lang="scss">
 
-styles {
-    background-image: url(../../public/image/fondo4.jpg);
-    background-size: cover;
-    background-position:left;
-    opacity: 0.9;
-}
+
 
 </style>
