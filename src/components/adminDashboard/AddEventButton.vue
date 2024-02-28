@@ -14,9 +14,7 @@ const navigateToForm = () => {
 
 <style lang="scss" scoped>
 
-.button {
 
-}
 
 </style>
     
