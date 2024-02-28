@@ -1,6 +1,6 @@
 <script setup>
 
-import ModifyEvent from '@/src/components/adminDashboard/ModifyEvent';
+import ModifyEvent from '@/components/adminDashboard/ModifyEvent.vue';
 
 </script>
 
