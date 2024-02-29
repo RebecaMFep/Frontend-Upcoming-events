@@ -12,7 +12,6 @@ store.getEvents()
 <template>
 
 <div> 
-  
   <Carusel :events="store.events"/>
 </div>
 
@@ -22,8 +21,8 @@ store.getEvents()
   
 </div>
 
-    
-  </main>
+</main>
+
 </template>
 
 <style scoped>
@@ -34,6 +33,8 @@ main {
   margin: 5%;
   flex-wrap: wrap;
   gap:  10px; 
+ 
+  border-radius: 15px;
 
 }
 

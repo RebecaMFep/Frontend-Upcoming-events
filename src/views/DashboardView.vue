@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from "vue";
+
 import AdminDashboard from '@/components/AdminDashboard.vue';
 import { useEventStore } from "@/stores/event";
+import { useRouter } from 'vue-router'
 
-
+const router = useRouter()
 const store = useEventStore()
-let reloadComp = ref(false)
 
 store.getEvents()
 
@@ -18,28 +18,22 @@ const deleteEvent = async (id) => {
 
 }
 
-const editEvent = (event) => {
+const editEvent = () => {
+    router.push('/modify-event')
 
-    console.log(event)
-
-    if (!reloadComp.value) {
-        reloadComp.value = true
-        return
-    }
-
-    reloadComp.value = false
+  
 }
 </script>
 
 <template>
     <AdminDashboard />
-
-    <v-container>
-        <v-table fixed-header="" height="500px">
+    <main>
+    <v-container class="background d-flex justify-center rounded-lg">
+        <v-table fixed-header="" height="500px" class="adminList">
             <thead>
                 <tr>
                     <th class="text-left"> Id </th>
-                    <th class="text-left"> Title </th>
+                    <th class="text-left"> Título </th>
                     <th class="text-left"> Fecha </th>
                     <th class="text-left"> Hora </th>
                     <th class="text-left"> Lugar </th>
@@ -48,7 +42,7 @@ const editEvent = (event) => {
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="event in store.events" :key="event.id">
+                <tr color="teal-lighten-4" v-for="event in store.events" :key="event.id">
                     <td>{{ event.id }}</td>
                     <td>{{ event.title }}</td>
                     <td>{{ event.date }}</td>
@@ -69,9 +63,29 @@ const editEvent = (event) => {
             </tbody>
         </v-table>
     </v-container>
+</main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+
+main {
+    background-color: #FFF3E0;
+}
+
+.background {
+    background-color:#FFE0B2;
+}
+
+// .titlesList {
+//     //background-color: #B2DFDB;
+//     margin-bottom: 15px;
+// }
+// .adminList {
+//     background-color:#E0F2F1;
+//     margin-bottom: 50px;
+// }
+
+
 .text-left {
     padding: 10px;
     border-bottom: 1px solid #ddd;
@@ -80,10 +94,13 @@ const editEvent = (event) => {
 
 td {
     padding: 10px;
-    border-bottom: 1px solid blue;
+    //border-bottom: 1px solid blue;
     justify-content: space-between;
 }
 
+tr {
+   height: 25px ;
+}
 
 .btn-icono {
     display: flex;

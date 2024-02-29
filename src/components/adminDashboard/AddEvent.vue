@@ -82,11 +82,11 @@ const formattedDate = computed(() => { return date.format(selectedDate.value, 'f
 </script>
 
 <template>
-  <v-row justify="center">
+  <v-row justify="center" class="Back">
     <v-col cols="12" sm="10" md="8" lg="6">
 
       <v-card-title class="title d-flex justify-center">
-        <h1>Añadir Nuevo Evento</h1>
+        <h1 class="addTitle">Añadir Nuevo Evento</h1>
       </v-card-title>
 
       <v-spacer></v-spacer>
@@ -147,5 +147,17 @@ const formattedDate = computed(() => { return date.format(selectedDate.value, 'f
   </v-row>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.Back {
+  background-image: url(../../public/image/fondo4.jpg);
+    background-size: cover;
+    background-position:left;
+    opacity: 0.9;
+}
+
+.addTitle {
+  color:#00695C;
+}
+</style>
 
