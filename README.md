@@ -6,30 +6,29 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
 
 ## RESULTADO FINAL 
 
-![alt text](<Captura de pantalla 2024-02-29 000600.png>) 
-![alt text](<Captura de pantalla 2024-02-29 000630.png>) 
-![alt text](<Captura de pantalla 2024-02-29 000642.png>) 
-![alt text](<Captura de pantalla 2024-02-29 001232.png>)
-![alt text](<Captura de pantalla 2024-02-29 001333.png>) 
-![alt text](<Captura de pantalla 2024-02-29 001347.png>)
-![alt text](<Captura de pantalla 2024-02-29 001438.png>)
-![alt text](<Captura de pantalla 2024-02-29 001447.png>)
-![alt text](<Captura de pantalla 2024-02-29 001514.png>) 
-![alt text](<Captura de pantalla 2024-02-29 001538.png>) 
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 000600.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 000600.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 000630.png"> 
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001333.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001347.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001438.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001514.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001538.png">
 
 
 
 ## USER FLOW Y TABLA RELACIONAL
 
-![tabla relacional](image.png)
+<img src="./src/assets/icons-readme/userflow.png">
+<img src="./src/assets/icons-readme/image.png">
 
 
 
 ## DISEÑO DE LA WEB CON FIGMA
-![alt text](Figma.png)
-![alt text](Figma2.png)
-![alt text](figma4.png)
-![alt text](Figma5.png)
+<img src="./src/assets/icons-readme/Figma.png">
+<img src="./src/assets/icons-readme/Figma2.png">
+<img src="./src/assets/icons-readme/Figma4.png">
+<img src="./src/assets/icons-readme/Figma5.png">
 
 
 ## LENGUAJES UTILIZADOS :rocket:
