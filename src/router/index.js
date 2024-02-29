@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
+import RegisterView from '@/views/RegisterView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import { useAuthStore } from '@/stores/auth.js'
+import AddEventView from '@/components/adminDashboard/AddEvent.vue'
+import ModifyEventVue from '@/components/adminDashboard/ModifyEvent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,9 +16,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/login',
-      name: 'login',
-      component: LoginView
+      path: '/register',
+      name: 'register',
+      component: RegisterView
       
     },
     {
@@ -37,6 +40,17 @@ const router = createRouter({
       component: DashboardView,
       meta: { requiresAuth: true }
     },
+    {
+      path: '/add-event',
+      name: 'addevent',
+      component: AddEventView,
+      meta: { requiresAuth: true }
+    },
+     {
+       path: '/modify-event',
+       name: 'modifyevent',
+       component: ModifyEventVue,
+     },
   ]
 })
 
@@ -49,4 +63,4 @@ router.beforeEach( (to,from) => {
   }
 })
 
-export default router
+export default router;

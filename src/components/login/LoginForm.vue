@@ -33,59 +33,67 @@ async function login() {
     password: password.value
   }
 
-  store.login(dataConnection)
+  let isAuthenticated = await store.login(dataConnection)
 
-  if (store.user.isAuthenticated) {
-    const redirectPath = '/dashboard'
+  if (isAuthenticated && store.user.roles == "ROLE_ADMIN") {
+    const redirectPath = route.query.redirect || '/dashboard'
+    router.push(redirectPath)
+  }
+
+  if (isAuthenticated && store.user.roles == "ROLE_USER") {
+    const redirectPath = route.query.redirect || '/'
     router.push(redirectPath)
   }
 }
 
-function redirectToAdminDashboard() {
-  const redirectPath = route.query.redirect || '/'
+function redirectToRegister() {
+  const redirectPath = route.query.redirect || '/register'
   router.push(redirectPath)
 }
 
 </script>
 <template>
+ 
   <div class="login-box">
+    <v-card-title class="title d-flex justify-center">
+        <h1 class="addTitle">Iniciar Sesión</h1>
+      </v-card-title>
 
-    <v-sheet class="mx-auto rounded-lg login-box" style="">
+    <v-sheet class="mx-auto rounded-lg login-box" color="teal-lighten-5">
       <div class="form">
-        <v-form fast-fail @submit.prevent="login()">
+        <v-form fast-fail class="mt-10 mb-13 pa-4 rounded-lg" @submit.prevent="login()">
           <v-text-field class="rounded-lg" v-model="username" label="Usuario" :rules="userRules"></v-text-field>
 
-          <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules"></v-text-field>
+          <v-text-field class="rounded-lg" v-model="password" label="Contraseña" :rules="passwordRules" type="password" ></v-text-field>
 
-          <v-btn type="submit" color="orange" block class="mt-4 rounded-lg">Iniciar sesión</v-btn>
+          <v-btn type="submit" color="orange-darken-1" block class="mt-4  rounded-lg">Iniciar sesión</v-btn>
 
-          <v-btn type="" color="orange" block class="mt-4 rounded-lg">Registrarse</v-btn>
+          <v-btn type="link" @click="redirectToRegister()" color="orange-darken-1" block class="mt-4 rounded-lg">Registrarse</v-btn>
         </v-form>
       </div>
     </v-sheet>
   </div>
+
 </template>
-<style>
+
+<style lang="scss" scoped>
+
+
 .login-box {
-  /* height: 90%;
-    width: 100%; */
-  width: 80%;
-  border: 2px solid blue;
+  
+  width: 60%;
+  // border: 3px solid blue; 
   border-radius: 20px;
-  justify-content: center;
-}
-.rounded-lg{
-  margin-top: 5%;
+  margin-left: 20%; 
 }
 
-.custom-border {
-  border: 1px solid blue;
-  margin-bottom: 5%;
+.addTitle {
+  color: #00695C;
 }
 
-.form {
-  margin-top: 10%;
-  margin: 5%;
-  margin-bottom: 10%;
-}
+
+
+
+
+
 </style>

@@ -1,11 +1,7 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<script setup>
+</script>
 
-  <v-btn>
-  Button
-</v-btn>
+<template>
 </template>
 
 <style>
