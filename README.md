@@ -34,10 +34,10 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
 ## LENGUAJES UTILIZADOS :rocket:
 
 <div>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="SASS" alt="SASS" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JS" alt="JS" width="40" height="40"/>&nbsp;
-    
+    <img src="./src/assets/icons-readme/HTML5.png">
+    <img src="./src/assets/icons-readme/Saas.png">
+    <img src="./src/assets/icons-readme/javascript.jpg">
+    <img src="./src/assets/icons-readme/JAVA.png">
  </div>
    
 
@@ -46,10 +46,14 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
 
 ## HERRAMIENTAS UTILIZADAS :hammer:
 <div>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCODE" alt="VSCODE" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg"  title="GIT" alt="GIT" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/figma/figma-original.svg" title="figma" alt="figma" width="40" height="40"/>&nbsp;
+    <img src="./src/assets/icons-readme/spring-boot.jpg">
+    <img src="./src/assets/icons-readme/docker.png">
+    <img src="./src/assets/icons-readme/my-SQL.png">
+    <img src="./src/assets/icons-readme/vuetify3.png">
+     <img src="./src/assets/icons-readme/visual.png">
+    <img src="./src/assets/icons-readme/git.png">
+    <img src="./src/assets/icons-readme/figma.png">
+    <img src="./src/assets/icons-readme/vue3.png">
 </div>
 
 ## COLABORADORES/AS:
