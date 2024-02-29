@@ -4,31 +4,40 @@
 
 NUestro proyecto consiste en el desarrollo de una aplicación y web para aquellos usuario interesados en eventos musicales, además de masterclass relacionadas con la música. Como usuario, se podrán registrar en nuestra página lo que le dará el privilegio de buscar entre todos los eventos musicales que ofrecemos y registrarse en aquellos que le puedan interesar. Además tendrá la posibilidad de cancelar el registro a un evento concreto y de ver aquellos que ya no están disponible poruqe ya han tenido lugar o bien porque el aforo se ha completado. Todo ello podrá verlo en su dashboard de usuario una vez logueado. Además del registro y el log in de usuario, también el administrador de la web podrá tener acceso a su dashboard donde podrá editar y eliminar los eventos, así como añadir nuevos eventos a la lista.
 
-## GITHUB PAGES LINK
-
-
 ## RESULTADO FINAL 
 
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 000600.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 000600.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 000630.png"> 
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001333.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001347.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001438.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001514.png">
+<img src="./src/assets/icons-readme/Captura de pantalla 2024-02-29 001538.png">
 
-## USER FLOW
+
+
+## USER FLOW Y TABLA RELACIONAL
+
+<img src="./src/assets/icons-readme/userflow.png">
+<img src="./src/assets/icons-readme/image.png">
+
+
 
 ## DISEÑO DE LA WEB CON FIGMA
-
-
-## ORGANIZACIÓN DEL TRABAJO
-
-
+<img src="./src/assets/icons-readme/Figma.png">
+<img src="./src/assets/icons-readme/Figma2.png">
+<img src="./src/assets/icons-readme/Figma4.png">
+<img src="./src/assets/icons-readme/Figma5.png">
 
 
 ## LENGUAJES UTILIZADOS :rocket:
 
 <div>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="SASS" alt="SASS" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JS" alt="JS" width="40" height="40"/>&nbsp;
-    
-   
-    
+    <img src="./src/assets/icons-readme/HTML5.png">
+    <img src="./src/assets/icons-readme/Saas.png">
+    <img src="./src/assets/icons-readme/javascript.jpg">
+    <img src="./src/assets/icons-readme/JAVA.png">
  </div>
    
 
@@ -37,10 +46,14 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
 
 ## HERRAMIENTAS UTILIZADAS :hammer:
 <div>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCODE" alt="VSCODE" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg"  title="GIT" alt="GIT" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/figma/figma-original.svg" title="figma" alt="figma" width="40" height="40"/>&nbsp;
+    <img src="./src/assets/icons-readme/spring-boot.jpg">
+    <img src="./src/assets/icons-readme/docker.png">
+    <img src="./src/assets/icons-readme/my-SQL.png">
+    <img src="./src/assets/icons-readme/vuetify3.png">
+     <img src="./src/assets/icons-readme/visual.png">
+    <img src="./src/assets/icons-readme/git.png">
+    <img src="./src/assets/icons-readme/figma.png">
+    <img src="./src/assets/icons-readme/vue3.png">
 </div>
 
 ## COLABORADORES/AS:
