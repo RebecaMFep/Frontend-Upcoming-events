@@ -4,20 +4,32 @@
 
 NUestro proyecto consiste en el desarrollo de una aplicación y web para aquellos usuario interesados en eventos musicales, además de masterclass relacionadas con la música. Como usuario, se podrán registrar en nuestra página lo que le dará el privilegio de buscar entre todos los eventos musicales que ofrecemos y registrarse en aquellos que le puedan interesar. Además tendrá la posibilidad de cancelar el registro a un evento concreto y de ver aquellos que ya no están disponible poruqe ya han tenido lugar o bien porque el aforo se ha completado. Todo ello podrá verlo en su dashboard de usuario una vez logueado. Además del registro y el log in de usuario, también el administrador de la web podrá tener acceso a su dashboard donde podrá editar y eliminar los eventos, así como añadir nuevos eventos a la lista.
 
-## GITHUB PAGES LINK
-
-
 ## RESULTADO FINAL 
 
+![alt text](<Captura de pantalla 2024-02-29 000600.png>) 
+![alt text](<Captura de pantalla 2024-02-29 000630.png>) 
+![alt text](<Captura de pantalla 2024-02-29 000642.png>) 
+![alt text](<Captura de pantalla 2024-02-29 001232.png>)
+![alt text](<Captura de pantalla 2024-02-29 001333.png>) 
+![alt text](<Captura de pantalla 2024-02-29 001347.png>)
+![alt text](<Captura de pantalla 2024-02-29 001438.png>)
+![alt text](<Captura de pantalla 2024-02-29 001447.png>)
+![alt text](<Captura de pantalla 2024-02-29 001514.png>) 
+![alt text](<Captura de pantalla 2024-02-29 001538.png>) 
 
-## USER FLOW
+
+
+## USER FLOW Y TABLA RELACIONAL
+
+![tabla relacional](image.png)
+
+
 
 ## DISEÑO DE LA WEB CON FIGMA
-
-
-## ORGANIZACIÓN DEL TRABAJO
-
-
+![alt text](Figma.png)
+![alt text](Figma2.png)
+![alt text](figma4.png)
+![alt text](Figma5.png)
 
 
 ## LENGUAJES UTILIZADOS :rocket:
@@ -26,8 +38,6 @@ NUestro proyecto consiste en el desarrollo de una aplicación y web para aquello
     <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="SASS" alt="SASS" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JS" alt="JS" width="40" height="40"/>&nbsp;
-    
-   
     
  </div>
    
